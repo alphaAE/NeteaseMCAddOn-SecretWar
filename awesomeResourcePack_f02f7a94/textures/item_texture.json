@@ -1,0 +1,93 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "secret_war:bow_flame": {
+      "textures": "textures/items/bow_flame_standby"
+    },
+    "secret_war:bow_flame_frame": {
+      "textures": [
+        "textures/items/bow_flame_0",
+        "textures/items/bow_flame_1",
+        "textures/items/bow_flame_2",
+        "textures/items/bow_flame_3"
+      ]
+    },
+
+    "secret_war:bow_strong": {
+      "textures": "textures/items/bow_strong_standby"
+    },
+    "secret_war:bow_strong_frame": {
+      "textures": [
+        "textures/items/bow_strong_0",
+        "textures/items/bow_strong_1",
+        "textures/items/bow_strong_2",
+        "textures/items/bow_strong_3"
+      ]
+    },
+
+    "secret_war:bow_hunter": {
+      "textures": "textures/items/bow_hunter_standby"
+    },
+    "secret_war:bow_hunter_frame": {
+      "textures": [
+        "textures/items/bow_hunter_0",
+        "textures/items/bow_hunter_1",
+        "textures/items/bow_hunter_2",
+        "textures/items/bow_hunter_3"
+      ]
+    },
+
+    "secret_war:bow_antimatter_haz41": {
+      "textures": "textures/items/bow_antimatter_haz41_standby"
+    },
+    "secret_war:bow_antimatter_haz41_frame": {
+      "textures": [
+        "textures/items/bow_antimatter_haz41_0",
+        "textures/items/bow_antimatter_haz41_1",
+        "textures/items/bow_antimatter_haz41_2",
+        "textures/items/bow_antimatter_haz41_3"
+      ]
+    },
+
+    "secret_war:staff_toxic": {
+      "textures": "textures/items/staff_toxic"
+    },
+    "secret_war:staff_slime": {
+      "textures": "textures/items/staff_slime"
+    },
+    "secret_war:staff_invigorating": {
+      "textures": "textures/items/staff_invigorating"
+    },
+    "secret_war:staff_bursting_blast": {
+      "textures": "textures/items/staff_bursting_blast"
+    },
+
+    "secret_war:bone_meal_alpaca": {
+      "textures": "textures/items/bone_meal_alpaca"
+    },
+    "secret_war:bone_meal_ender": {
+      "textures": "textures/items/bone_meal_ender"
+    },
+    "secret_war:bone_meal_flames": {
+      "textures": "textures/items/bone_meal_flames"
+    },
+    "secret_war:bone_meal_illusion": {
+      "textures": "textures/items/bone_meal_illusion"
+    },
+    "secret_war:bone_meal_spider": {
+      "textures": "textures/items/bone_meal_spider"
+    },
+    "secret_war:bone_meal_wolf": {
+      "textures": "textures/items/bone_meal_wolf"
+    },
+
+    "secret_war:coin": {
+      "textures": "textures/items/coin"
+    },
+    "secret_war:egg_exclusive_precious": {
+      "textures": "textures/items/egg_exclusive_precious"
+    }
+
+  }
+}

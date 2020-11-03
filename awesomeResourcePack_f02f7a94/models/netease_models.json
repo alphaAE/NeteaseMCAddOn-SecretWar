@@ -1,0 +1,10 @@
+{
+    "datiangou2": {
+        "animation": {
+            "fengxi": "animation/datiangou_animation_fengxi.json",
+            "run": "animation/datiangou_animation_run.json"
+        },
+        "mesh": "mesh/datiangou_mesh.json",
+        "skeleton": "skeleton/datiangou_skeleton.json"
+    }
+}

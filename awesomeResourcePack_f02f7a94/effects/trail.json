@@ -1,0 +1,97 @@
+{
+  "particleeffect": {
+    "activetime": {
+      "value": "1.0"
+    },
+    "colorfade": [
+      {
+        "color": "1.000000 0.615686 0.000000 1.000000",
+        "time": "0.0"
+      },
+      {
+        "color": "1.000000 0.333333 0.023529 0.700000",
+        "time": "0.12"
+      },
+      {
+        "color": "0.560784 0.043137 0.043137 0.000000",
+        "time": "0.5599999999999999"
+      }
+    ],
+    "dampingforce": {
+      "value": "2.0"
+    },
+    "direction": {
+      "max": "1.0 1.0 1.0",
+      "min": "-1.0 -1.0 -1.0",
+      "value": "Direction"
+    },
+    "emissionrate": {
+      "max": "50.0",
+      "min": "40.0"
+    },
+    "emitterpath": [],
+    "emitterscale": [],
+    "emittersize": {
+      "value": "0.0 0.0 0.0"
+    },
+    "emittertype": {
+      "value": "Sphere"
+    },
+    "enableloop": {
+      "enable": "true"
+    },
+    "material": {
+      "name": "Materials/Particle.xml"
+    },
+    "numparticles": {
+      "value": "30"
+    },
+    "particlesize": {
+      "max": "0.3 0.3",
+      "min": "0.2 0.2"
+    },
+    "relative": {
+      "enable": "false"
+    },
+    "sizedelta": [
+      {
+        "scale": "1.0 1.0",
+        "time": "0.0%"
+      },
+      {
+        "scale": "0.857 0.857",
+        "time": "20.0%"
+      },
+      {
+        "scale": "0.87559 0.87559",
+        "time": "40.0%"
+      },
+      {
+        "scale": "0.8731733 0.8731733",
+        "time": "60.0%"
+      },
+      {
+        "scale": "0.873487471 0.873487471",
+        "time": "80.0%"
+      },
+      {
+        "scale": "0.87344662877 0.87344662877",
+        "time": "100.0%"
+      }
+    ],
+    "texture": {
+      "name": "textures/particle/sun"
+    },
+    "thickness": {
+      "value": "0"
+    },
+    "timetolive": {
+      "max": "0.8",
+      "min": "0.4"
+    },
+    "velocity": {
+      "max": "1.0",
+      "min": "0.4"
+    }
+  }
+}

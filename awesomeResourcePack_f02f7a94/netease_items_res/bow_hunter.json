@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "secret_war:bow_hunter",
+      "category": "Equipment"
+    },
+    "components": {
+      "minecraft:icon": "secret_war:bow_hunter",
+      "netease:frame_animation": {
+        "frame_count": 4,
+        "texture_name": "secret_war:bow_hunter_frame",
+        "animate_in_toolbar": true
+      }
+    }
+  }
+}

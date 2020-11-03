@@ -1,0 +1,32 @@
+{
+  "effect": [
+    {
+      "path": "effects/burst.json",
+      "type": "particle"
+    }
+  ],
+  "model": [
+    {
+      "animation": {
+        "": [
+          {
+            "bind_alias": "test",
+            "bind_bone": "0",
+            "bind_class": "default",
+            "bind_effect": [
+              {
+                "index": 0,
+                "time": "",
+                "visible": ""
+              }
+            ],
+            "bind_offset": "0.00 0.00 0.00",
+            "bind_rotate": "0.00 0.00 0.00"
+          }
+        ]
+      },
+      "name": "",
+      "type": ""
+    }
+  ]
+}
