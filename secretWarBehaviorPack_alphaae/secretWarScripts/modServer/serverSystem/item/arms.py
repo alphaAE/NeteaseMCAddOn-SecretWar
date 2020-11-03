@@ -1,6 +1,6 @@
 import server.extraServerApi as serverApi
 
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 
 
 class Arms(object):

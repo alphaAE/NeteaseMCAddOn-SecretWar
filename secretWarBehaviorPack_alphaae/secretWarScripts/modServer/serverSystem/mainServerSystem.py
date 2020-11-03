@@ -5,19 +5,19 @@ import mod.server.extraServerApi as serverApi
 import mod.server.serverEvent as serverEvent
 
 import server.extraServerApi as serverApi
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 
-from awesomeScripts.modCommon.listenEventUtil import ListenEventUtil
+from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
-from awesomeScripts.modServer.serverSystem.module.armsServerModule import ArmsServerModule
+from secretWarScripts.modServer.serverSystem.module.armsServerModule import ArmsServerModule
 
 # 用来打印规范格式的log
-from awesomeScripts.modServer import logger
+from secretWarScripts.modServer import logger
 
 ServerSystem = serverApi.GetServerSystemCls()
 
 
-class FpsServerSystem(ServerSystem):
+class MainServerSystem(ServerSystem):
 
     moduleList = []
 

@@ -2,9 +2,9 @@
 
 import client.extraClientApi as clientApi
 # ClientSystem = clientApi.GetClientSystemCls()
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 # 用来打印规范的log
-from awesomeScripts.modClient import logger
+from secretWarScripts.modClient import logger
 
 
 class EntityAnimClientSystem:

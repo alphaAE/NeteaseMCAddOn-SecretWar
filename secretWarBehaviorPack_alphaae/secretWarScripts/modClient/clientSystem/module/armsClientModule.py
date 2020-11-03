@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import client.extraClientApi as clientApi
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 
-from awesomeScripts.modCommon import modConfig
-from awesomeScripts.modCommon.listenEventUtil import ListenEventUtil
+from secretWarScripts.modCommon import modConfig
+from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
 # 用来打印规范的log
-from awesomeScripts.modClient import logger
+from secretWarScripts.modClient import logger
 
 
 class ArmsClientModule:

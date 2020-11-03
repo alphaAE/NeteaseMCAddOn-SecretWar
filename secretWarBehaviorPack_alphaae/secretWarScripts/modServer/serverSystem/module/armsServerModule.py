@@ -2,13 +2,13 @@
 
 import server.extraServerApi as serverApi
 
-from awesomeScripts.modCommon import modConfig
-from awesomeScripts.modCommon import modVarPool
-from awesomeScripts.modCommon.listenEventUtil import ListenEventUtil
-from awesomeScripts.modServer.serverSystem.item.arms import ArmsBowFlame, ArmsBowStrong, ArmsBowHunter, ArmsBowAntimatterHaz41
+from secretWarScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modVarPool
+from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
+from secretWarScripts.modServer.serverSystem.item.arms import ArmsBowFlame, ArmsBowStrong, ArmsBowHunter, ArmsBowAntimatterHaz41
 
 # 用来打印规范格式的log
-from awesomeScripts.modServer import logger
+from secretWarScripts.modServer import logger
 
 
 class ArmsServerModule:

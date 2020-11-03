@@ -5,8 +5,8 @@ import client.extraClientApi as clientApi
 ViewBinder = clientApi.GetViewBinderCls()
 ViewRequest = clientApi.GetViewViewRequestCls()
 ScreenNode = clientApi.GetScreenNodeCls()
-from awesomeScripts.modClient import logger
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modClient import logger
+from secretWarScripts.modCommon import modConfig
 
 
 # 所有的UI类需要继承自引擎的ScreenNode类

@@ -6,9 +6,10 @@ import mod.server.serverEvent as serverEvent
 
 import server.extraServerApi as serverApi
 # ServerSystem = serverApi.GetServerSystemCls()
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 # 用来打印规范格式的log
-from awesomeScripts.modServer import logger
+from secretWarScripts.modServer import logger
+
 
 class EntityAnimServerSystem:
 

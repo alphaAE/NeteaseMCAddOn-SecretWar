@@ -6,12 +6,12 @@ ModName = "HugoFpsMod"
 ModVersion = "0.0.1"
 
 # Server System
-ServerSystemName = "FpsServerSystem"
-ServerSystemClsPath = "awesomeScripts.modServer.serverSystem.fpsServerSystem.FpsServerSystem"
+ServerSystemName = "MainServerSystem"
+ServerSystemClsPath = "secretWarScripts.modServer.serverSystem.mainServerSystem.MainServerSystem"
 
 # Client System
-ClientSystemName = "FpsClientSystem"
-ClientSystemClsPath = "awesomeScripts.modClient.clientSystem.fpsClientSystem.FpsClientSystem"
+ClientSystemName = "MainClientSystem"
+ClientSystemClsPath = "secretWarScripts.modClient.clientSystem.mainClientSystem.MainClientSystem"
 
 # Engine
 Minecraft = "Minecraft"
@@ -43,7 +43,7 @@ ParticleControlComponent = "particleControl"
 ParticleBindComponent = "particleEntityBind"
 ## Custom
 ClientShootComponent = "ClientShoot"
-ClientShootCompClsPath = "awesomeScripts.modClient.clientComponent.shootComponentClient.ShootComponentClient"
+ClientShootCompClsPath = "secretWarScripts.modClient.clientComponent.shootComponentClient.ShootComponentClient"
 
 # Server Event
 ## Engine
@@ -65,7 +65,7 @@ ShootEvent = "Shoot"
 
 # UI
 FpsBattleUIName = "fpsBattle"
-FpsBattleUIPyClsPath = "awesomeScripts.modClient.ui.fpsBattle.FpsBattleScreen"
+FpsBattleUIPyClsPath = "secretWarScripts.modClient.ui.fpsBattle.FpsBattleScreen"
 FpsBattleUIScreenDef = "fpsBattle.main"
 
 # Client param

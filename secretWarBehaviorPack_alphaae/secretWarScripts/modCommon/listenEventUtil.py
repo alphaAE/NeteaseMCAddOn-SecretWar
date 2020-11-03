@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 监听与注销事件工具
-from awesomeScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modConfig
 
 
 class ListenEventUtil:

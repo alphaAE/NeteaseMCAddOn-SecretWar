@@ -4,6 +4,7 @@
 import client.extraClientApi as clientApi
 ComponentCls = clientApi.GetComponentCls()
 
+
 # Component要继承于基类才能生效
 class ShootComponentClient(ComponentCls):
     def __init__(self, entityId):
