@@ -41,7 +41,6 @@ class JobsSelectScreen(ScreenNode):
             eventArgs["playerId"] = self.playerId
             eventArgs["jobs"] = modConfig.JobsHunter
             self.system.NotifyToServer(modConfig.JobsSelectEvent, eventArgs)
-            print "发送广播 ", modConfig.JobsSelectEvent
             self.CloneScreen()
 
     def OnBtnSelectMage(self, args):
@@ -53,8 +52,7 @@ class JobsSelectScreen(ScreenNode):
             eventArgs["playerId"] = self.playerId
             eventArgs["jobs"] = modConfig.JobsMage
             self.system.NotifyToServer(modConfig.JobsSelectEvent, eventArgs)
-            print "发送广播 ", modConfig.JobsSelectEvent
-            self.CloneScreen()
+            # self.CloneScreen()
 
     def CloneScreen(self):
         self.SetVisible("/", False)

@@ -16,12 +16,22 @@ ClientSystemClsPath = "secretWarScripts.modClient.clientSystem.mainClientSystem.
 # Engine
 Minecraft = "Minecraft"
 
-# 职业常量
+# 职业常量 & 皮肤材质名
 JobsMage = "mage"
 JobsHunter = "hunter"
 
-# 抛射物标识符
+# 可以使用的物品表
+canUse = [""]
+# 每个职业可以使用的武器表
+jobsCanUseArms = {
+    JobsMage: ["secret_war:bow_antimatter_haz41"],
+    JobsHunter: ["secret_war:bow_flame", "secret_war:bow_strong", "secret_war:bow_hunter"]
+}
+
+
+# Attr标识符
 ProjectileAttr = "ProjectileAttr"
+JobsAttr = "JobsAttr"
 
 # UI
 JobsSelectUIName = "JobsSelect"
@@ -30,6 +40,7 @@ JobsSelectUIScreenDef = "jobsSelect.main"
 
 # 自定义事件
 JobsSelectEvent = "JobsSelectEvent"
+JobsSelectFinished = "JobsSelectFinished"
 
 #########################
 

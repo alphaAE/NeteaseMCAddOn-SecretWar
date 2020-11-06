@@ -24,7 +24,9 @@ class JobsClientModule:
         self.eventAndCallbackList = [
             ["UiInitFinished", self.OnUiInitFinished]
         ]
-        self.userEventAndCallbackList = []
+        self.userEventAndCallbackList = [
+            [modConfig.JobsSelectFinished, modConfig.ServerSystemName, self.OnJobsSelectFinished]
+        ]
 
         # ListenEvent
         self.listenEventUtil.InitAll(self.eventList, self.eventAndCallbackList, self.userEventAndCallbackList)
@@ -33,7 +35,7 @@ class JobsClientModule:
         # UnListenEvent
         self.listenEventUtil.DestroyAll(self.eventList, self.eventAndCallbackList, self.userEventAndCallbackList)
 
-    # 监听引擎初始化完成事件，在这个事件后创建我们的战斗UI
+    # 监听引擎初始化完成事件创建UI
     def OnUiInitFinished(self, args):
         # 注册UI 创建UI
         # clientApi.SetResponse(False)
@@ -49,3 +51,8 @@ class JobsClientModule:
             self.mFpsBattleUINode.Init(self.system)
         else:
             logger.error("create ui %s failed!" % modConfig.FpsBattleUIScreenDef)
+
+    # 收到服务职业设置完成广播 设置皮肤
+    def OnJobsSelectFinished(self, args):
+        comp = clientApi.CreateComponent(args["playerId"], "Minecraft", "model")
+        comp.SetSkin("secretWar/" + args["jobs"])

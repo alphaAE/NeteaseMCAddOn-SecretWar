@@ -4,3 +4,6 @@ ProjectileList = []
 
 # 玩家蓄力计时池
 ArmsDurationPool = []
+
+# 玩家列表
+PlayerList = {}
