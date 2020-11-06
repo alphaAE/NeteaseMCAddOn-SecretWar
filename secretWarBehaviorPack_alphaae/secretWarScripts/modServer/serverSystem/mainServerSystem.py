@@ -10,6 +10,8 @@ from secretWarScripts.modCommon import modConfig
 from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
 from secretWarScripts.modServer.serverSystem.module.armsServerModule import ArmsServerModule
+from secretWarScripts.modServer.serverSystem.module.basicInitServerModule import BasicInitServerModule
+from secretWarScripts.modServer.serverSystem.module.jobsServerModule import JobsServerModule
 
 # 用来打印规范格式的log
 from secretWarScripts.modServer import logger
@@ -34,14 +36,16 @@ class MainServerSystem(ServerSystem):
         self.eventAndCallbackList = []
         self.userEventAndCallbackList = [
             # 客户端自定义的事件 ShootEvent
-            [modConfig.ShootEvent, self.OnShoot]
+            [modConfig.ShootEvent, modConfig.ClientSystemName, self.OnShoot]
         ]
 
         # ListenEvent
         self.listenEventUtil.InitAll(self.eventList, self.eventAndCallbackList, self.userEventAndCallbackList)
 
         # 初始化定义的功能模块
+        self.moduleList.append(BasicInitServerModule(self, namespace, systemName))
         self.moduleList.append(ArmsServerModule(self, namespace, systemName))
+        self.moduleList.append(JobsServerModule(self, namespace, systemName))
 
     def Destroy(self):
         logger.info("===== Server Destroy =====")

@@ -2,11 +2,12 @@
 
 # 从客户端API中拿到我们需要的ViewBinder / ViewRequest / ScreenNode
 import client.extraClientApi as clientApi
+from secretWarScripts.modClient import logger
+from secretWarScripts.modCommon import modConfig
+
 ViewBinder = clientApi.GetViewBinderCls()
 ViewRequest = clientApi.GetViewViewRequestCls()
 ScreenNode = clientApi.GetScreenNodeCls()
-from secretWarScripts.modClient import logger
-from secretWarScripts.modCommon import modConfig
 
 
 # 所有的UI类需要继承自引擎的ScreenNode类
@@ -32,7 +33,6 @@ class FpsBattleScreen(ScreenNode):
 
     # Create函数是继承自ScreenNode，会在UI创建完成后被调用
     def Create(self):
-        logger.info("===== FpsBattleScreen Create =====")
         self.AddTouchEventHandler(self.mAimButton, self.OnAimButtonTouch, {"isSwallow": True})
         self.AddTouchEventHandler(self.mShootButtonRight, self.OnShootButtonTouch, {"isSwallow": True})
         self.AddTouchEventHandler(self.mShootButtonLeft, self.OnShootButtonTouch, {"isSwallow": True})
@@ -56,7 +56,7 @@ class FpsBattleScreen(ScreenNode):
         # 按钮事件
         touchEvent = args["TouchEvent"]
         # 点击坐标
-        touchPos = args["TouchPosX"], args["TouchPosY"]
+        # touchPos = args["TouchPosX"], args["TouchPosY"]
         # 触控在按钮范围内弹起时
         if touchEvent == touchEventEnum.TouchUp:
             logger.info("============= touch up  =========")

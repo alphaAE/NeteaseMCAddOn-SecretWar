@@ -1,3 +1,8 @@
 {
-    "Arena.Component.Namespace": "ydlrq"
+    "Arena.Component.Namespace": "ydlrq",
+    "Arena.Component.Creature.Version": [
+        0,
+        0,
+        1
+    ]
 }

@@ -2,7 +2,7 @@
 # 这个文件保存了MOD中使用的一些变量，这样做的好处很多，建议参考
 
 # Mod Version
-ModName = "HugoFpsMod"
+ModName = "SecretWarAddon"
 ModVersion = "0.0.1"
 
 # Server System
@@ -16,8 +16,22 @@ ClientSystemClsPath = "secretWarScripts.modClient.clientSystem.mainClientSystem.
 # Engine
 Minecraft = "Minecraft"
 
+# 职业常量
+JobsMage = "mage"
+JobsHunter = "hunter"
+
 # 抛射物标识符
 ProjectileAttr = "ProjectileAttr"
+
+# UI
+JobsSelectUIName = "JobsSelect"
+JobsSelectUIPyClsPath = "secretWarScripts.modClient.ui.jobsSelect.JobsSelectScreen"
+JobsSelectUIScreenDef = "jobsSelect.main"
+
+# 自定义事件
+JobsSelectEvent = "JobsSelectEvent"
+
+#########################
 
 # Server Component
 ## Engine
@@ -61,7 +75,6 @@ UiInitFinishedEvent = "UiInitFinished"
 ScriptTickClientEvent = "OnScriptTickClient"
 ## Custom
 ShootEvent = "Shoot"
-
 
 # UI
 FpsBattleUIName = "fpsBattle"

@@ -1,6 +1,6 @@
 {
   "data": {
-    "默认": "{\n  \"cameraDeparted\": false,\n  \"index\": \"默认\",\n  \"mainAvatar\": {\n    \"curAvatarAni\": \"\",\n    \"curAvatarBindingPoint\": \"\",\n    \"curEditAvatar\": \"\",\n    \"curEditModel\": 0,\n    \"personaEnable\": true\n  },\n  \"name\": \"默认\",\n  \"otherAvatar\": [\n    {\n      \"otherAvatarAni\": null,\n      \"otherAvatarBindingPoint\": null,\n      \"otherAvatarPos\": [\n        0.0,\n        0.0,\n        0.0\n      ],\n      \"otherAvatarRot\": [\n        0.0,\n        0.0,\n        0.0\n      ],\n      \"otherEditAvatar\": null,\n      \"useMainAvatarPos\": true\n    }\n  ],\n  \"sceneEffect\": [],\n  \"showNumber\": 0,\n  \"uuid\": {\n    \"int\": 142315553636314965485604713490457071500\n  }\n}"
+    "默认": "{\n  \"cameraDeparted\": false,\n  \"index\": \"默认\",\n  \"mainAvatar\": {\n    \"curAvatarAni\": \"\",\n    \"curAvatarBindingPoint\": \"default\",\n    \"curEditAvatar\": \"\",\n    \"curEditModel\": 0,\n    \"personaEnable\": false\n  },\n  \"name\": \"默认\",\n  \"otherAvatar\": [],\n  \"sceneEffect\": [],\n  \"showNumber\": 0,\n  \"uuid\": {\n    \"int\": 38616650873367206449230764849763649092\n  }\n}"
   },
   "departCamera": false,
   "index": "默认"

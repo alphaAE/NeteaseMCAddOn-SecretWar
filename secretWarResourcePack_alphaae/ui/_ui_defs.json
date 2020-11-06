@@ -1,5 +1,6 @@
 {
     "ui_defs": [
-        "ui/fpsBattle.json"
+        "ui\/fpsBattle.json",
+        "ui\/jobsSelect.json"
     ]
 }

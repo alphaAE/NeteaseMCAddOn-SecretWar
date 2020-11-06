@@ -4,7 +4,7 @@
   "Type": 7,
   "Versions": [],
   "JavaType": 7,
-  "Name": "射击模板改",
+  "Name": "迷你战争",
   "UpdateTime": "2020-10-10T13:25:20.0902784+08:00",
   "IconName": null,
   "Md5": null,
@@ -24,7 +24,7 @@
   "OpenEditType": 2,
   "EditMapUID": "",
   "EditMapType": 1,
-  "TestMapUID": "28cdcce862994cc1ae0fe490eba840ce",
+  "TestMapUID": "99a1df0820624a9f8adc7e480de07aa5",
   "TestJavaMapType": 0,
   "TestJavaGameVersion": "",
   "TestJavaGameMode": 0,
@@ -39,7 +39,7 @@
   "TestExperimentalGameplay": false,
   "TestStartWithMap": false,
   "SelectComponents": [
-    "9663f57e8e2a4ac88d30585f7e9026cf",
+    "182ff96193a94b8b92b2ca8ffc4af1d6",
     "391d139ec2314d1b9bf933404a6a285b"
   ],
   "isSlim": false

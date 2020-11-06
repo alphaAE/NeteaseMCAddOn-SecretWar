@@ -1,0 +1,325 @@
+{
+   "bg" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : true,
+      "layer" : 0,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 5.0, -11.50 ],
+      "size" : [ 1000.0, 167.0 ],
+      "texture" : "textures/ui/bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "btnSelectHunter@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.169999957084656,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "选择",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0.0, 0.0, 0.0, 0.0 ],
+      "$pressed_button_name" : "%jobsSelect.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@jobsSelect.default" : {}
+         },
+         {
+            "hover@jobsSelect.hover" : {}
+         },
+         {
+            "pressed@jobsSelect.pressed" : {}
+         },
+         {
+            "button_label@jobsSelect.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 5,
+      "offset" : [ 0.50, 72.0 ],
+      "size" : [ 69.0, 16.0 ],
+      "visible" : true
+   },
+   "btnSelectMage@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.169999957084656,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "选择",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0.0, 0.0, 0.0, 0.0 ],
+      "$pressed_button_name" : "%jobsSelect.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@jobsSelect.default" : {}
+         },
+         {
+            "hover@jobsSelect.hover" : {}
+         },
+         {
+            "pressed@jobsSelect.pressed" : {}
+         },
+         {
+            "button_label@jobsSelect.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 12,
+      "offset" : [ 0.50, 64.0 ],
+      "size" : [ 69.0, 16.0 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "default" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "hover" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "imageHunter" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 9,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 15.0 ],
+      "size" : [ 100, 100 ],
+      "texture" : "textures/ui/ui_hunter",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "imageMage" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 16,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 8.0 ],
+      "size" : [ 100, 100 ],
+      "texture" : "textures/ui/ui_mage",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "labelHunter" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 4,
+      "offset" : [ 0.50, -32.0 ],
+      "shadow" : false,
+      "size" : [ 41.0, 13.0 ],
+      "text" : "猎人",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "labelMage" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 11,
+      "offset" : [ 0.50, -38.0 ],
+      "shadow" : false,
+      "size" : [ 41.0, 13.0 ],
+      "text" : "法师",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "labelTitle" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.409999966621399,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 17,
+      "offset" : [ -1.0, -75.50 ],
+      "shadow" : false,
+      "size" : [ 100.0, 17.0 ],
+      "text" : "选择加入的阵营",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "bg@jobsSelect.bg" : {}
+         },
+         {
+            "panelSelect@jobsSelect.panelSelect" : {}
+         },
+         {
+            "labelTitle@jobsSelect.labelTitle" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "jobsSelect",
+   "panelHunter" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "labelHunter@jobsSelect.labelHunter" : {}
+         },
+         {
+            "btnSelectHunter@jobsSelect.btnSelectHunter" : {}
+         },
+         {
+            "imageHunter@jobsSelect.imageHunter" : {}
+         }
+      ],
+      "layer" : 3,
+      "offset" : [ -78.0, -28.0 ],
+      "size" : [ 100, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panelMage" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "labelMage@jobsSelect.labelMage" : {}
+         },
+         {
+            "btnSelectMage@jobsSelect.btnSelectMage" : {}
+         },
+         {
+            "imageMage@jobsSelect.imageMage" : {}
+         }
+      ],
+      "layer" : 10,
+      "offset" : [ 67.0, -19.0 ],
+      "size" : [ 100, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panelSelect" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "panelHunter@jobsSelect.panelHunter" : {}
+         },
+         {
+            "panelMage@jobsSelect.panelMage" : {}
+         }
+      ],
+      "layer" : 1,
+      "offset" : [ 2.50, 2.0 ],
+      "size" : [ 303.0, 160.0 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "pressed" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   }
+}

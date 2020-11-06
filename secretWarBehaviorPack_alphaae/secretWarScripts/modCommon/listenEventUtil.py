@@ -45,10 +45,10 @@ class ListenEventUtil:
 
     # 事件自定义监听
     # 简单化注册事件监听
-    def LiteListenForUserEvent(self, eventName, callback):
+    def LiteListenForUserEvent(self, eventName, className, callback):
         self.system.ListenForEvent(
             modConfig.ModName,
-            modConfig.ServerSystemName,
+            className,
             eventName,
             self.mSelf,
             callback
@@ -58,13 +58,13 @@ class ListenEventUtil:
     def ListListenForUserEvent(self, eventAndCallbackList):
         if len(eventAndCallbackList):
             for item in eventAndCallbackList:
-                self.LiteListenForUserEvent(item[0], item[1])
+                self.LiteListenForUserEvent(item[0], item[1], item[2])
 
     # 简单化销毁事件监听
-    def LiteUnListenForUserEvent(self, eventName, callback):
+    def LiteUnListenForUserEvent(self, eventName, className, callback):
         self.system.UnListenForEvent(
             modConfig.ModName,
-            modConfig.ServerSystemName,
+            className,
             eventName,
             self.mSelf,
             callback
@@ -74,7 +74,7 @@ class ListenEventUtil:
     def ListUnListenForUserEvent(self, eventAndCallbackList):
         if len(eventAndCallbackList):
             for item in eventAndCallbackList:
-                self.LiteUnListenForUserEvent(item[0], item[1])
+                self.LiteUnListenForUserEvent(item[0], item[1], item[2])
 
     # 自定义事件
     # 列表定义自定义事件

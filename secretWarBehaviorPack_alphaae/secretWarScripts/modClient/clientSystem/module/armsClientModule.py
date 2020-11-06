@@ -13,7 +13,7 @@ from secretWarScripts.modClient import logger
 class ArmsClientModule:
 
     def __init__(self, system, namespace, systemName):
-        print "===== ArmsClientModule init ====="
+        logger.info("===== ArmsClientModule Init =====")
         self.system = system
 
         # 监听事件列表
@@ -22,7 +22,7 @@ class ArmsClientModule:
         self.eventAndCallbackList = []
         self.userEventAndCallbackList = [
             # 客户端自定义的事件 ShootEvent
-            [modConfig.BulletHitEvent, self.OnBulletHit]
+            [modConfig.BulletHitEvent, modConfig.ServerSystemName, self.OnBulletHit]
         ]
 
         # ListenEvent
