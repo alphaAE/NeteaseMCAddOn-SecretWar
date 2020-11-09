@@ -21,11 +21,25 @@ JobsMage = "mage"
 JobsHunter = "hunter"
 
 # 可以使用的物品表
-canUse = [""]
-# 每个职业可以使用的武器表
+canUse = [
+    "secret_war:bone_meal_alpaca",
+    "secret_war:bone_meal_ender",
+    "secret_war:bone_meal_flames",
+    "secret_war:bone_meal_illusion",
+    "secret_war:bone_meal_spider",
+    "secret_war:bone_meal_wolf",
+    "secret_war:coin",
+    "secret_war:egg_exclusive_precious",
+    "secret_war:test"
+]
+# 每个职业可以使用的武器
 jobsCanUseArms = {
     JobsMage: ["secret_war:bow_antimatter_haz41"],
-    JobsHunter: ["secret_war:bow_flame", "secret_war:bow_strong", "secret_war:bow_hunter"]
+    JobsHunter: [
+        "secret_war:bow_flame",
+        "secret_war:bow_strong",
+        "secret_war:bow_hunter"
+    ]
 }
 
 
@@ -41,8 +55,9 @@ JobsSelectUIScreenDef = "jobsSelect.main"
 # 自定义事件
 JobsSelectEvent = "JobsSelectEvent"
 JobsSelectFinished = "JobsSelectFinished"
-
-#########################
+StartMobsSpawn = "StartMobsSpawn"
+CreateNPCEvent = "CreateNPCEvent"
+#########################    
 
 # Server Component
 ## Engine

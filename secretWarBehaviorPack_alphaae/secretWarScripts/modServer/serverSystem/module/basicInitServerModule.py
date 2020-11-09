@@ -18,9 +18,13 @@ class BasicInitServerModule:
 
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
-        self.eventList = []
+        self.eventList = [
+            [modConfig.StartMobsSpawn],
+            [modConfig.CreateNPCEvent]
+        ]
         self.eventAndCallbackList = [
-            ["ClientLoadAddonsFinishServerEvent", self.OnClientLoadAddonsFinishServerEvent]
+            ["ClientLoadAddonsFinishServerEvent", self.OnClientLoadAddonsFinishServerEvent],
+            ["CommandEvent", self.OnCommandEvent]
         ]
         self.userEventAndCallbackList = []
 
@@ -65,3 +69,52 @@ class BasicInitServerModule:
 
         # 初始化角色物品、货币、状态
         pass
+
+    def OnCommandEvent(self, data):
+        entityId = data.get("entityId", "")
+        command = data.get("command", "")
+        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+
+        if command == "/sw s":
+            self.KillAllEntity(entityId)
+            # 通知MobsSpawnServerModule开始刷新怪物
+            compGame.AddTimer(0.4, self.BroadcastStartMobsSpawn, entityId)
+        elif command == "/sw npc":
+            eventArgs = self.system.CreateEventData()
+            eventArgs["playerId"] = entityId
+            self.system.BroadcastEvent(modConfig.CreateNPCEvent, eventArgs)
+        elif command == "/sw k":
+            self.KillAllEntity(entityId)
+
+    # 定义功能封装
+    # 杀死所有附近非玩家实体
+    def killAllOtherEntity(self, entityId):
+        filters = {
+            "any_of": [
+                {
+                    "subject": "other",
+                    "test": "is_family",
+                    "operator": "not",
+                    "value": "player"
+                }
+            ]
+        }
+        comp = serverApi.CreateComponent(entityId, "Minecraft", "game")
+        for i in range(5):
+            entityIdList = comp.GetEntitiesAround(entityId, 80, filters)
+            for entityId in entityIdList:
+                compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+                compGame.KillEntity(entityId)
+
+    # 通知MobsSpawnServerModule开始刷新怪物
+    def BroadcastStartMobsSpawn(self, entityId):
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = entityId
+        self.system.BroadcastEvent(modConfig.StartMobsSpawn, eventArgs)
+
+    def KillAllEntity(self, entityId):
+        # 多次杀死所有附近非玩家实体 (防止史莱姆)
+        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+        compGame.AddTimer(0.1, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(0.2, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(0.3, self.killAllOtherEntity, entityId)

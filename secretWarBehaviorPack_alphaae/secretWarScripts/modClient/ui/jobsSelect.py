@@ -52,7 +52,7 @@ class JobsSelectScreen(ScreenNode):
             eventArgs["playerId"] = self.playerId
             eventArgs["jobs"] = modConfig.JobsMage
             self.system.NotifyToServer(modConfig.JobsSelectEvent, eventArgs)
-            # self.CloneScreen()
+            self.CloneScreen()
 
     def CloneScreen(self):
         self.SetVisible("/", False)
