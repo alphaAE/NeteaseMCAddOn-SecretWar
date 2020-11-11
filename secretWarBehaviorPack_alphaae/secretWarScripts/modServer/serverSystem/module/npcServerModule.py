@@ -37,4 +37,3 @@ class NPCServerModule:
         entityId2 = self.system.CreateEngineEntityByTypeStr("secret_war:npc_hunter", (288.5, 5, 72.5), (0, 0))
 
     # 定义功能封装
-
