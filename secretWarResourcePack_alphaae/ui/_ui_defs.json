@@ -1,6 +1,10 @@
 {
     "ui_defs": [
+        "ui\/currency.json",
         "ui\/fpsBattle.json",
-        "ui\/jobsSelect.json"
+        "ui\/jobsSelect.json",
+        "ui\/shopHunter.json",
+        "ui\/shopMage.json",
+        "ui\/startGame.json"
     ]
 }

@@ -133,28 +133,20 @@
           {
             "filters": {
               "any_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "player"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "snowgolem"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "irongolem"
-                }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
               ]
             },
-            "max_dist": 16
+            "max_dist": 512
           }
         ],
-        "must_see": true
+        "must_see": false
       },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
+      
       "minecraft:physics": {
       },
       "minecraft:pushable": {

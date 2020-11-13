@@ -7,3 +7,5 @@ ArmsDurationPool = []
 
 # 玩家列表
 PlayerList = {}
+
+PlayerCurrencyPool = {}

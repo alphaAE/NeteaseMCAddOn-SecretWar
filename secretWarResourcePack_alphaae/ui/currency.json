@@ -1,0 +1,94 @@
+{
+   "currencyImage" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 1,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : 0,
+      "offset" : [ "26.32%+1.0px", 0.0 ],
+      "size" : [ "18.32%+0.0px", "83.21%+0.0px" ],
+      "texture" : "textures/currency/gold_ingot",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "currencyNumLabel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "auto_expand" : false,
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 1,
+      "line_padding" : 0.0,
+      "offset" : [ "-10.53%+-3.5px", "17.24%+-2.0px" ],
+      "shadow" : true,
+      "size" : [ "40.37%+13.0px", "58.97%+0.0px" ],
+      "text" : "0",
+      "text_alignment" : "right",
+      "type" : "label",
+      "visible" : true
+   },
+   "currencyPanel" : {
+      "anchor_from" : "top_right",
+      "anchor_to" : "top_right",
+      "controls" : [
+         {
+            "currencyImage@currency.currencyImage" : {}
+         },
+         {
+            "currencyNumLabel@currency.currencyNumLabel" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 1,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : 0,
+      "offset" : [ -3.0, 2.0 ],
+      "size" : [ "-4.0%+75.0px", 17.0 ],
+      "texture" : "textures/currency/back",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 204, 52 ],
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "mainPanel@currency.mainPanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "mainPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "currencyPanel@currency.currencyPanel" : {}
+         }
+      ],
+      "layer" : 0,
+      "offset" : [ 0, 0 ],
+      "size" : [ "100%+0 px", "100%+0px" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "namespace" : "currency"
+}

@@ -41,79 +41,35 @@
       "minecraft:vindicator_johnny": {
         "minecraft:behavior.nearest_attackable_target": {
           "priority": 2,
-          "within_radius": 12,
-          "must_see": true,
-          "must_see_forget_duration": 40.0,
           "entity_types": [
             {
               "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": "illager"
-                  }
+                "any_of": [
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "is_family", "subject": "other", "value": "villager" }
                 ]
               },
-              "max_dist": 12
+              "max_dist": 512
             }
-          ]
+          ],
+          "must_see": false
         }
       },
       "minecraft:default_targeting": {
         "minecraft:behavior.nearest_attackable_target": {
           "priority": 2,
-          "within_radius": 12,
-          "must_see": true,
-          "must_see_forget_duration": 40.0,
           "entity_types": [
             {
               "filters": {
                 "any_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "player"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "snowgolem"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "irongolem"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "wandering_trader"
-                  }
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "is_family", "subject": "other", "value": "villager" }
                 ]
               },
-              "max_dist": 12
-            },
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "villager"
-                  },
-                  {
-                    "test": "has_component",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": "minecraft:is_baby"
-                  }
-                ]
-              },
-              "max_dist": 12
+              "max_dist": 512
             }
-          ]
+          ],
+          "must_see": false
         }
       },
       "minecraft:raid_configuration": {
@@ -240,6 +196,10 @@
     },
 
     "components": {
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? (query.is_baby ? 12 : 5) + (Math.die_roll(query.equipment_count,1,3)) : 0"
       },
@@ -300,9 +260,7 @@
       },
       "minecraft:jump.static": {
       },
-      "minecraft:follow_range": {
-        "value": 64
-      },
+
       "minecraft:loot": {
         "table": "loot_tables/entities/vindication_illager.json"
       },
@@ -328,9 +286,7 @@
         "look_distance": 8,
         "probability": 0.02
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
+
       "minecraft:on_target_acquired": {
         "event": "minecraft:become_aggro",
         "target": "self"

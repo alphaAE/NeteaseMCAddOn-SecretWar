@@ -1,6 +1,6 @@
 {
   "data": {
-    "默认": "{\n  \"cameraDeparted\": false,\n  \"index\": \"默认\",\n  \"mainAvatar\": {\n    \"curAvatarAni\": \"\",\n    \"curAvatarBindingPoint\": \"default\",\n    \"curEditAvatar\": \"\",\n    \"curEditModel\": 0,\n    \"personaEnable\": false\n  },\n  \"name\": \"默认\",\n  \"otherAvatar\": [],\n  \"sceneEffect\": [],\n  \"showNumber\": 0,\n  \"uuid\": {\n    \"int\": 38616650873367206449230764849763649092\n  }\n}"
+    "默认": "{\n  \"cameraDeparted\": false,\n  \"index\": \"默认\",\n  \"mainAvatar\": {\n    \"curAvatarAni\": \"\",\n    \"curAvatarBindingPoint\": \"default\",\n    \"curEditAvatar\": \"\",\n    \"curEditModel\": 0,\n    \"personaEnable\": false\n  },\n  \"name\": \"默认\",\n  \"otherAvatar\": [],\n  \"sceneEffect\": [],\n  \"showNumber\": 0,\n  \"uuid\": {\n    \"int\": 281745747140222018088683198390977047940\n  }\n}"
   },
   "departCamera": false,
   "index": "默认"

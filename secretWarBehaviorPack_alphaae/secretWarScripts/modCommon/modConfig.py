@@ -32,32 +32,87 @@ canUse = [
     "secret_war:egg_exclusive_precious",
     "secret_war:test"
 ]
-# 每个职业可以使用的武器
+
+# 每个职业可以捡起和购买的物品
 jobsCanUseArms = {
-    JobsMage: ["secret_war:bow_antimatter_haz41"],
+    JobsMage: [
+        "secret_war:staff_bursting_blast",
+        "secret_war:staff_invigorating",
+        "secret_war:staff_slime",
+        "secret_war:staff_toxic",
+        "secret_war:egg_exclusive_precious_mage",
+        "secret_war:attack",
+        "secret_war:health"
+    ],
     JobsHunter: [
         "secret_war:bow_flame",
         "secret_war:bow_strong",
-        "secret_war:bow_hunter"
+        "secret_war:bow_hunter",
+        "secret_war:bow_antimatter_haz41",
+        "secret_war:egg_exclusive_precious_hunter",
+        "secret_war:attack",
+        "secret_war:health"
     ]
 }
 
+# 商店物品价格表
+shopItem = {
+    "secret_war:staff_bursting_blast": 40,
+    "secret_war:staff_invigorating": 30,
+    "secret_war:staff_slime": 20,
+    "secret_war:staff_toxic": 10,
+
+    "secret_war:bow_flame": 10,
+    "secret_war:bow_strong": 20,
+    "secret_war:bow_hunter": 30,
+    "secret_war:bow_antimatter_haz41": 40,
+
+    "secret_war:egg_exclusive_precious_mage": 15,
+    "secret_war:egg_exclusive_precious_hunter": 15,
+    "secret_war:attack": 10,
+    "secret_war:health": 10,
+}
 
 # Attr标识符
 ProjectileAttr = "ProjectileAttr"
 JobsAttr = "JobsAttr"
 
 # UI
+StartGameUIName = "StartGame"
+StartGameUIPyClsPath = "secretWarScripts.modClient.ui.startGame.StartGameScreen"
+StartGameUIScreenDef = "startGame.main"
+
 JobsSelectUIName = "JobsSelect"
 JobsSelectUIPyClsPath = "secretWarScripts.modClient.ui.jobsSelect.JobsSelectScreen"
 JobsSelectUIScreenDef = "jobsSelect.main"
+
+CurrencyUIName = "Currency"
+CurrencyUIPyClsPath = "secretWarScripts.modClient.ui.currency.CurrencyScreen"
+CurrencyUIScreenDef = "currency.main"
+
+ShopMageUIName = "ShopMage"
+ShopMageUIPyClsPath = "secretWarScripts.modClient.ui.shopMage.ShopMageScreen"
+ShopMageUIScreenDef = "shopMage.main"
+
+ShopHunterUIName = "ShopHunter"
+ShopHunterUIPyClsPath = "secretWarScripts.modClient.ui.shopHunter.ShopHunterScreen"
+ShopHunterUIScreenDef = "shopHunter.main"
 
 # 自定义事件
 JobsSelectEvent = "JobsSelectEvent"
 JobsSelectFinished = "JobsSelectFinished"
 StartMobsSpawn = "StartMobsSpawn"
+PlayerStartButton = "PlayerStartButton"
 CreateNPCEvent = "CreateNPCEvent"
-#########################    
+PlayerBuyEvent = "PlayerBuyEvent"
+
+ServerCallbackPlayerCurrencyEvent = "ServerCallbackPlayerCurrencyEvent"
+ClientGetPlayerCurrencyEvent = "ClientGetPlayerCurrencyEvent"
+ClientSetPlayerCurrencyEvent = "ClientSetPlayerCurrencyEvent"
+
+OpenShopEvent = "OpenShopEvent"
+
+#########################
 
 # Server Component
 ## Engine

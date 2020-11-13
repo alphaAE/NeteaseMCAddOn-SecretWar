@@ -1,0 +1,159 @@
+{
+   "AutoControlLayer" : true,
+   "Version" : "0.1.0",
+   "children" : [
+      {
+         "children" : [
+            {
+               "children" : [
+                  {
+                     "children" : [
+                        {
+                           "children" : [],
+                           "mCanPrefab" : true,
+                           "mCurrent" : "main",
+                           "mName" : "currencyImage",
+                           "mPath" : "/netease_editor_root_panel_main/mainPanel/currencyPanel/currencyImage",
+                           "mRefName" : "",
+                           "mRefNamespace" : "",
+                           "mRefValue" : null,
+                           "mScreenConnectControllerPath" : "",
+                           "mScreenConnectScreen" : "",
+                           "mTemplate" : "image",
+                           "properties" : {
+                              "anchor_from" : "center",
+                              "anchor_to" : "center",
+                              "is_new_nine_slice" : "false\n",
+                              "layer" : "1\n",
+                              "nine_slice_buttom" : "0\n",
+                              "nine_slice_left" : "0\n",
+                              "nine_slice_right" : "0\n",
+                              "nine_slice_top" : "0\n",
+                              "nineslice_size" : "0\n",
+                              "offset" : "[ \"26.32%+1.0px\", 0.0 ]\n",
+                              "size" : "[ \"18.32%+0.0px\", \"83.21%+0.0px\" ]\n",
+                              "texture" : "textures/currency/gold_ingot",
+                              "type" : "image",
+                              "uv" : "[ 0, 0 ]\n",
+                              "uv_size" : "[ 32, 32 ]\n",
+                              "visible" : "true\n"
+                           }
+                        },
+                        {
+                           "children" : [],
+                           "mCanPrefab" : true,
+                           "mCurrent" : "main",
+                           "mName" : "currencyNumLabel",
+                           "mPath" : "/netease_editor_root_panel_main/mainPanel/currencyPanel/currencyNumLabel",
+                           "mRefName" : "",
+                           "mRefNamespace" : "",
+                           "mRefValue" : null,
+                           "mScreenConnectControllerPath" : "",
+                           "mScreenConnectScreen" : "",
+                           "mTemplate" : "label",
+                           "properties" : {
+                              "anchor_from" : "center",
+                              "anchor_to" : "center",
+                              "color" : "[ 1, 1, 1 ]\n",
+                              "font_scale_factor" : "1.0\n",
+                              "font_size" : "normal",
+                              "font_type" : "smooth",
+                              "layer" : "1\n",
+                              "line_padding" : "0.0\n",
+                              "offset" : "[ \"-10.53%+-3.5px\", \"17.24%+-2.0px\" ]\n",
+                              "shadow" : "true\n",
+                              "size" : "[ \"40.37%+13.0px\", \"58.97%+0.0px\" ]\n",
+                              "text" : "0",
+                              "text_alignment" : "right",
+                              "type" : "label",
+                              "visible" : "true\n"
+                           }
+                        }
+                     ],
+                     "mCanPrefab" : true,
+                     "mCurrent" : "main",
+                     "mName" : "currencyPanel",
+                     "mPath" : "/netease_editor_root_panel_main/mainPanel/currencyPanel",
+                     "mRefName" : "",
+                     "mRefNamespace" : "",
+                     "mRefValue" : null,
+                     "mScreenConnectControllerPath" : "",
+                     "mScreenConnectScreen" : "",
+                     "mTemplate" : "image",
+                     "properties" : {
+                        "anchor_from" : "top_right",
+                        "anchor_to" : "top_right",
+                        "is_new_nine_slice" : "false\n",
+                        "layer" : "1\n",
+                        "nine_slice_buttom" : "0\n",
+                        "nine_slice_left" : "0\n",
+                        "nine_slice_right" : "0\n",
+                        "nine_slice_top" : "0\n",
+                        "nineslice_size" : "0\n",
+                        "offset" : "[ -3.0, 2.0 ]\n",
+                        "size" : "[ \"-4.0%+75.0px\", 17.0 ]\n",
+                        "texture" : "textures/currency/back",
+                        "type" : "image",
+                        "uv" : "[ 0, 0 ]\n",
+                        "uv_size" : "[ 204, 52 ]\n",
+                        "visible" : "true\n"
+                     }
+                  }
+               ],
+               "mCanPrefab" : true,
+               "mCurrent" : "main",
+               "mName" : "mainPanel",
+               "mPath" : "/netease_editor_root_panel_main/mainPanel",
+               "mRefName" : "",
+               "mRefNamespace" : "",
+               "mRefValue" : null,
+               "mScreenConnectControllerPath" : "",
+               "mScreenConnectScreen" : "",
+               "mTemplate" : "panel",
+               "properties" : {
+                  "anchor_from" : "center",
+                  "anchor_to" : "center",
+                  "layer" : "0\n",
+                  "offset" : "[ 0, 0 ]\n",
+                  "size" : "[ \"100%+0 px\", \"100%+0px\" ]\n",
+                  "type" : "panel",
+                  "visible" : "true\n"
+               }
+            }
+         ],
+         "mCanPrefab" : true,
+         "mCurrent" : "main",
+         "mName" : "main",
+         "mPath" : "/",
+         "mRefName" : "",
+         "mRefNamespace" : "",
+         "mRefValue" : null,
+         "mScreenConnectControllerPath" : "",
+         "mScreenConnectScreen" : "",
+         "mTemplate" : "base_screen",
+         "properties" : {
+            "$screen_content" : "\"currency.netease_editor_root_panel_main\"\n",
+            "absorbs_input" : "true\n",
+            "always_accepts_input" : "false\n",
+            "controls" : "",
+            "force_render_below" : "false\n",
+            "is_showing_menu" : "true\n",
+            "render_game_behind" : "true\n",
+            "render_only_when_topmost" : "true\n",
+            "should_steal_mouse" : "false\n",
+            "type" : "screen"
+         }
+      }
+   ],
+   "mCanPrefab" : true,
+   "mCurrent" : "main",
+   "mName" : "currency",
+   "mPath" : "namespace",
+   "mRefName" : "",
+   "mRefNamespace" : "",
+   "mRefValue" : null,
+   "mScreenConnectControllerPath" : "",
+   "mScreenConnectScreen" : "",
+   "mTemplate" : "namespace",
+   "properties" : {}
+}

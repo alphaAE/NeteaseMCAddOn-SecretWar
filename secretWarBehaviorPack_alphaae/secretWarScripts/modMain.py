@@ -16,7 +16,7 @@ class HugoFpsMod(object):
 
     @Mod.InitServer()
     def HugoFpsServerInit(self):
-        # logger.info("===== init server =====")
+        logger.info("===== init server =====")
         serverApi.RegisterSystem(
             modConfig.ModName,
             modConfig.ServerSystemName,
@@ -32,11 +32,11 @@ class HugoFpsMod(object):
     def HugoFpsClientInit(self):
         # logger.info("===== init client =====")
         # 注册一个自定义的客户端Component
-        clientApi.RegisterComponent(
-            modConfig.ModName,
-            modConfig.ClientShootComponent,
-            modConfig.ClientShootCompClsPath
-        )
+        # clientApi.RegisterComponent(
+        #     modConfig.ModName,
+        #     modConfig.ClientShootComponent,
+        #     modConfig.ClientShootCompClsPath
+        # )
         clientApi.RegisterSystem(
             modConfig.ModName,
             modConfig.ClientSystemName,

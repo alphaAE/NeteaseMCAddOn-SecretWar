@@ -54,6 +54,25 @@
     },
 
     "components": {
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
+              ]
+            },
+            "max_dist": 512
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0,
@@ -79,7 +98,6 @@
       "minecraft:can_climb": {
       },
       "minecraft:fire_immune": true,
-      "minecraft:burns_in_daylight": false,
       "minecraft:type_family": {
         "family": [ "zombie_pigman", "undead", "monster", "mob" ]
       },
@@ -134,9 +152,7 @@
       "minecraft:behavior.random_look_around": {
         "priority": 9
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
+
       "minecraft:physics": {
       },
       "minecraft:pushable": {

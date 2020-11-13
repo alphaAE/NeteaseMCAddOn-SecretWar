@@ -24,7 +24,7 @@
   "OpenEditType": 2,
   "EditMapUID": "",
   "EditMapType": 1,
-  "TestMapUID": "8ab0819e5c1a4b1487bd514f0760284e",
+  "TestMapUID": "5b57f16d6a5141c38eadac03f481ed48",
   "TestJavaMapType": 0,
   "TestJavaGameVersion": "",
   "TestJavaGameMode": 0,
@@ -39,7 +39,7 @@
   "TestExperimentalGameplay": false,
   "TestStartWithMap": false,
   "SelectComponents": [
-    "adc86e5d7a4147aa96c28370146c8b84",
+    "5e9488643c20420a8fbb601672414c66",
     "391d139ec2314d1b9bf933404a6a285b"
   ],
   "isSlim": false

@@ -87,6 +87,12 @@
     },
     "secret_war:egg_exclusive_precious": {
       "textures": "textures/items/egg_exclusive_precious"
+    },
+    "secret_war:egg_exclusive_precious_mage": {
+      "textures": "textures/items/egg_exclusive_precious_mage"
+    },
+    "secret_war:egg_exclusive_precious_hunter": {
+      "textures": "textures/items/egg_exclusive_precious_hunter"
     }
 
   }

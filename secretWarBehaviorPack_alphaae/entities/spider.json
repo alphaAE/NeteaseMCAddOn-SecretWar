@@ -84,35 +84,6 @@
         },
         "minecraft:on_target_acquired": {
           "event": "minecraft:become_angry"
-        },
-        "minecraft:behavior.nearest_attackable_target": {
-          "priority": 2,
-          "entity_types": [
-            {
-              "filters": {
-                "any_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "player"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "snowgolem"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "irongolem"
-                  }
-                ]
-              },
-              "max_dist": 16
-            }
-          ],
-          "attack_interval": 5,
-          "must_see": true
         }
       },
 
@@ -140,6 +111,26 @@
     },
 
     "components": {
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
+              ]
+            },
+            "max_dist": 512
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
+      
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 5 : 0"
       },
@@ -208,9 +199,7 @@
       "minecraft:behavior.random_look_around": {
         "priority": 7
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
+
       "minecraft:rideable": {
         "seat_count": 1,
         "family_types": [

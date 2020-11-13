@@ -65,12 +65,7 @@
         "start_speed": 0.1,
         "speed_when_turning": 0.2
       },
-      "minecraft:burns_in_daylight": {
-      },
-      "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
-      },
+
       "minecraft:behavior.avoid_mob_type": {
         "priority": 0,
         "max_dist": 16.0,
@@ -90,24 +85,25 @@
         ]
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 1,
-        "within_radius": 64,
-        "reselect_targets": true,
+        "priority": 2,
         "entity_types": [
           {
             "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
+              ]
             },
-            "max_dist": 64
+            "max_dist": 512
           }
         ],
-        "must_see": false,
-        "must_see_forget_duration": 0.5,
-        "scan_interval": 20,
-        "target_search_height": 80.0
+        "must_see": false
       },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
+
       "minecraft:behavior.swoop_attack": {
         "priority": 2,
         "delay_range": [ 10.0, 20.0 ]

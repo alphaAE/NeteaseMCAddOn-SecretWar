@@ -44,9 +44,9 @@ class JobsServerModule:
 
     # 捡起物品时回调 判断是否是合格物品
     def OnServerPlayerTryTouchEvent(self, data):
-        itemName = data.get("itemName", "")
         playerJob = self.getJob(data.get("playerId", ""))
         if playerJob != "NULL":
+            itemName = data.get("itemName", "")
             if itemName in modConfig.jobsCanUseArms[playerJob]:
                 return
             if itemName in modConfig.canUse:
@@ -70,4 +70,7 @@ class JobsServerModule:
 
     def getJob(self, entityId):
         comp = serverApi.CreateComponent(entityId, "Minecraft", "modAttr")
-        return comp.GetAttr(modConfig.ModName + modConfig.JobsAttr).get("job", "NULL")
+        try:
+            return comp.GetAttr(modConfig.ModName + modConfig.JobsAttr).get("job", "NULL")
+        except Exception:
+            return "NULL"

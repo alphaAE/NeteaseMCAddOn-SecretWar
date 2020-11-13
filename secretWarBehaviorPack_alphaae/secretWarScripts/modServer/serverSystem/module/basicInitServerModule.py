@@ -57,7 +57,7 @@ class BasicInitServerModule:
                 'mob_griefing': False,              # 生物破坏
                 'keep_inventory': True,             # 保留物品栏
                 'weather_cycle': True,              # 天气更替
-                'mob_spawn': True,                  # 生物生成
+                'mob_spawn': False,                  # 生物生成
                 'entities_drop_loot': False,        # 实体掉落
                 'daylight_cycle': False,            # 开启昼夜交替
                 'command_blocks_enabled': False     # 启用方块命令
@@ -78,7 +78,7 @@ class BasicInitServerModule:
         if command == "/sw s":
             self.KillAllEntity(entityId)
             # 通知MobsSpawnServerModule开始刷新怪物
-            compGame.AddTimer(0.4, self.BroadcastStartMobsSpawn, entityId)
+            compGame.AddTimer(4.0, self.BroadcastStartMobsSpawn, entityId)
         elif command == "/sw npc":
             eventArgs = self.system.CreateEventData()
             eventArgs["playerId"] = entityId
@@ -115,6 +115,6 @@ class BasicInitServerModule:
     def KillAllEntity(self, entityId):
         # 多次杀死所有附近非玩家实体 (防止史莱姆)
         compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
-        compGame.AddTimer(0.1, self.killAllOtherEntity, entityId)
-        compGame.AddTimer(0.2, self.killAllOtherEntity, entityId)
-        compGame.AddTimer(0.3, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(0.0, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(1.5, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(3.0, self.killAllOtherEntity, entityId)

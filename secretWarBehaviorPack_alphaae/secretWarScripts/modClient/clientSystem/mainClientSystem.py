@@ -7,6 +7,7 @@ from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 # 模块
 from secretWarScripts.modClient.clientSystem.module.armsClientModule import ArmsClientModule
 from secretWarScripts.modClient.clientSystem.module.jobsClientModule import JobsClientModule
+from secretWarScripts.modClient.clientSystem.module.currencyClientModule import CurrencyClientModule
 
 # 用来打印规范的log
 from secretWarScripts.modClient import logger
@@ -36,6 +37,7 @@ class MainClientSystem(ClientSystem):
         # 初始化定义的功能模块
         self.moduleList.append(JobsClientModule(self, namespace, systemName))
         self.moduleList.append(ArmsClientModule(self, namespace, systemName))
+        self.moduleList.append(CurrencyClientModule(self, namespace, systemName))
 
         # 用于保存在击中后需要释放的实体
         self.mHitDestroyIdList = {}

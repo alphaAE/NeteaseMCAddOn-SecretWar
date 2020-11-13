@@ -2,19 +2,67 @@
    "bg" : {
       "anchor_from" : "center",
       "anchor_to" : "center",
-      "is_new_nine_slice" : true,
+      "is_new_nine_slice" : false,
       "layer" : 0,
       "nine_slice_buttom" : 0,
       "nine_slice_left" : 0,
       "nine_slice_right" : 0,
       "nine_slice_top" : 0,
       "nineslice_size" : [ 0, 0, 0, 0 ],
-      "offset" : [ 5.0, -11.50 ],
-      "size" : [ 1000.0, 167.0 ],
-      "texture" : "textures/ui/bg",
+      "offset" : [ 6.0, -13.0 ],
+      "size" : [ 1000.0, 202.0 ],
+      "texture" : "textures/ui/job_bg",
       "type" : "image",
       "uv" : [ 0, 0 ],
-      "uv_size" : [ 0, 0 ],
+      "uv_size" : [ 4056, 1000 ],
+      "visible" : true
+   },
+   "btnClose@common.button" : {
+      "$default_texture" : "textures/ui/empty",
+      "$hover_texture" : "textures/ui/empty",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/ui/empty",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@jobsSelect.default" : {}
+         },
+         {
+            "hover@jobsSelect.hover" : {}
+         },
+         {
+            "pressed@jobsSelect.pressed" : {}
+         },
+         {
+            "button_label@jobsSelect.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 90,
+      "offset" : [ 4.50, -100.50 ],
+      "size" : [ 19.0, 19.0 ],
       "visible" : true
    },
    "btnSelectHunter@common.button" : {
@@ -184,6 +232,23 @@
       "uv_size" : [ 0, 0 ],
       "visible" : true
    },
+   "label0" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.8199999928474426,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 17,
+      "line_padding" : 0.0,
+      "offset" : [ -88.0, 1.50 ],
+      "shadow" : false,
+      "size" : [ 148.0, 43.0 ],
+      "text" : "王国大法师和王牌猎人这两个人类最强战力被一股不知名的力量传送到一个神秘竞技场。现在，我们可以为竞技场里的怪物默哀了……",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
    "labelHunter" : {
       "anchor_from" : "center",
       "anchor_to" : "center",
@@ -192,7 +257,8 @@
       "font_size" : "normal",
       "font_type" : "smooth",
       "layer" : 4,
-      "offset" : [ 0.50, -32.0 ],
+      "line_padding" : 0.0,
+      "offset" : [ 0.50, -31.0 ],
       "shadow" : false,
       "size" : [ 41.0, 13.0 ],
       "text" : "猎人",
@@ -208,6 +274,7 @@
       "font_size" : "normal",
       "font_type" : "smooth",
       "layer" : 11,
+      "line_padding" : 0.0,
       "offset" : [ 0.50, -38.0 ],
       "shadow" : false,
       "size" : [ 41.0, 13.0 ],
@@ -224,7 +291,8 @@
       "font_size" : "normal",
       "font_type" : "smooth",
       "layer" : 17,
-      "offset" : [ -1.0, -75.50 ],
+      "line_padding" : 0.0,
+      "offset" : [ 92.0, -66.50 ],
       "shadow" : false,
       "size" : [ 100.0, 17.0 ],
       "text" : "选择加入的阵营",
@@ -244,6 +312,12 @@
          },
          {
             "labelTitle@jobsSelect.labelTitle" : {}
+         },
+         {
+            "label0@jobsSelect.label0" : {}
+         },
+         {
+            "btnClose@jobsSelect.btnClose" : {}
          }
       ],
       "force_render_below" : false,
@@ -269,7 +343,7 @@
          }
       ],
       "layer" : 3,
-      "offset" : [ -78.0, -28.0 ],
+      "offset" : [ -18.0, -27.0 ],
       "size" : [ 100, 100 ],
       "type" : "panel",
       "visible" : true
@@ -306,7 +380,7 @@
          }
       ],
       "layer" : 1,
-      "offset" : [ 2.50, 2.0 ],
+      "offset" : [ 64.50, 17.0 ],
       "size" : [ 303.0, 160.0 ],
       "type" : "panel",
       "visible" : true

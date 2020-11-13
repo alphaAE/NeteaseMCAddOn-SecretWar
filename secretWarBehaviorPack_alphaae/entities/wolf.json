@@ -109,59 +109,19 @@
         },
 
         "minecraft:behavior.nearest_attackable_target": {
-          "priority": 4,
-          "attack_interval": 10,
-          "reselect_targets": true,
+          "priority": 2,
           "entity_types": [
             {
               "filters": {
                 "any_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "skeleton"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "sheep"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "rabbit"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "fox"}
-                ] 
-              },
-              "max_dist": 16
-            },
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "baby_turtle"
-                  },
-                  {
-                    "test": "in_water",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": true
-                  }
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "is_family", "subject": "other", "value": "villager" }
                 ]
               },
-              "max_dist": 16
-            },
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "skeleton"
-                  },
-                  {
-                    "test": "is_underwater",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": true
-                  }
-                ]
-              },
-              "max_dist": 16
+              "max_dist": 512
             }
           ],
-          "must_see": true
+          "must_see": false
         },
         "minecraft:on_target_acquired": {
           "event": "minecraft:become_angry",
@@ -201,22 +161,24 @@
           "priority": 7
         },
 
-        "minecraft:behavior.owner_hurt_by_target": {
-          "priority": 1
-        },
+
         "minecraft:behavior.owner_hurt_target": {
           "priority": 2
         },
         "minecraft:behavior.nearest_attackable_target": {
-          "priority": 5,
-          "attack_interval": 10,
+          "priority": 2,
           "entity_types": [
             {
-              "filters": { "test" :  "is_family", "subject" : "other", "value" :  "skeleton"},
-              "max_dist": 16
+              "filters": {
+                "any_of": [
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "is_family", "subject": "other", "value": "villager" }
+                ]
+              },
+              "max_dist": 512
             }
           ],
-          "must_see": true
+          "must_see": false
         },
 
         "minecraft:sittable": {
@@ -243,6 +205,10 @@
 
 
     "components": {
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
@@ -400,9 +366,7 @@
                    "beef", "cooked_beef", "rotten_flesh", "muttonraw", "muttoncooked", "rabbit", "cooked_rabbit" ]
       },
 
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3
-      },
+
 	    "minecraft:physics": {
       },
       "minecraft:pushable": {

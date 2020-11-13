@@ -19,13 +19,15 @@ class JobsClientModule:
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(clientApi, self.system, self)
         self.eventList = [
-            [modConfig.JobsSelectEvent]
+            [modConfig.JobsSelectEvent],
+            [modConfig.PlayerStartButton]
         ]
         self.eventAndCallbackList = [
             ["UiInitFinished", self.OnUiInitFinished]
         ]
         self.userEventAndCallbackList = [
-            [modConfig.JobsSelectFinished, modConfig.ServerSystemName, self.OnJobsSelectFinished]
+            [modConfig.JobsSelectFinished, modConfig.ServerSystemName, self.OnJobsSelectFinished],
+            [modConfig.PlayerStartButton, modConfig.ClientSystemName, self.OnPlayerStartButton]
         ]
 
         # ListenEvent
@@ -38,21 +40,38 @@ class JobsClientModule:
     # 监听引擎初始化完成事件创建UI
     def OnUiInitFinished(self, args):
         # 注册UI 创建UI
-        # clientApi.SetResponse(False)
+        clientApi.RegisterUI(
+            modConfig.ModName,
+            modConfig.StartGameUIName,
+            modConfig.StartGameUIPyClsPath,
+            modConfig.StartGameUIScreenDef
+        )
+        self.mStartGameUINode = clientApi.CreateUI(modConfig.ModName, modConfig.StartGameUIName, {"isHud": 1})
+        if self.mStartGameUINode:
+            self.mStartGameUINode.Init(self.system)
+        else:
+            logger.error("create ui %s failed!" % modConfig.JobsSelectUIScreenDef)
+
+    def OnPlayerStartButton(self, args):
+        self.CreateUIJobsSelect()
+
+    # 收到服务职业设置完成广播 设置皮肤
+    def OnJobsSelectFinished(self, args):
+        comp = clientApi.CreateComponent(args["playerId"], "Minecraft", "model")
+        comp.SetSkin("secretWar/" + args["jobs"])
+        if self.mStartGameUINode:
+            self.mStartGameUINode.SetRemove()
+
+    # 定义功能封装
+    def CreateUIJobsSelect(self):
         clientApi.RegisterUI(
             modConfig.ModName,
             modConfig.JobsSelectUIName,
             modConfig.JobsSelectUIPyClsPath,
             modConfig.JobsSelectUIScreenDef
         )
-        self.mFpsBattleUINode = clientApi.CreateUI(modConfig.ModName, modConfig.JobsSelectUIName, {"isHud": 1})
-        # self.mFpsBattleUINode = clientApi.GetUI(modConfig.ModName, modConfig.FpsBattleUIName)
-        if self.mFpsBattleUINode:
-            self.mFpsBattleUINode.Init(self.system)
+        self.mJobsSelectUINode = clientApi.CreateUI(modConfig.ModName, modConfig.JobsSelectUIName, {"isHud": 0})
+        if self.mJobsSelectUINode:
+            self.mJobsSelectUINode.Init(self.system)
         else:
-            logger.error("create ui %s failed!" % modConfig.FpsBattleUIScreenDef)
-
-    # 收到服务职业设置完成广播 设置皮肤
-    def OnJobsSelectFinished(self, args):
-        comp = clientApi.CreateComponent(args["playerId"], "Minecraft", "model")
-        comp.SetSkin("secretWar/" + args["jobs"])
+            logger.error("create ui %s failed!" % modConfig.JobsSelectUIScreenDef)

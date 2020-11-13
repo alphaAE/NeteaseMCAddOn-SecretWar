@@ -130,15 +130,25 @@
         "priority": 4
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 1,
+        "priority": 2,
         "entity_types": [
           {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
-            "within_default": 6
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
+              ]
+            },
+            "max_dist": 512
           }
         ],
-        "must_reach": true
+        "must_see": false
       },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
+      
       "minecraft:persistent": {
       },
       "minecraft:physics": {

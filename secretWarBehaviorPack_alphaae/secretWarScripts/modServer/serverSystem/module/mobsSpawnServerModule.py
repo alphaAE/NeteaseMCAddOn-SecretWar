@@ -13,19 +13,12 @@ from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
 class MobsSpawnServerModule:
 
-    SecretWarEntitysList = [
-        "secret_war:empty",
-        "secret_war:chicken_jockey",
-        "secret_war:spider_jockey",
-        "secret_war:zombie_big",
-        "secret_war:zombie_baby",
-        "secret_war:skeleton_jockey"
-    ]
+    SecretWarEntitysList = {}
 
     SpawnPointList = [
-        (346, 5, 26),
-        (238, 5, 26),
-        (292, 5, -22)
+        (327, 6, 26),
+        (257, 6, 26),
+        (292, 6, -3)
     ]
 
     MobsSpawnList = [
@@ -72,7 +65,7 @@ class MobsSpawnServerModule:
 
     MobsSpawnWeightsDict = {
         0: [
-            "secret_war:empty"
+            {"secret_war:empty": 0}
         ],
         # 级别1
         1: [
@@ -102,7 +95,7 @@ class MobsSpawnServerModule:
         # 级别4
         4: [
             {"minecraft:vindicator": 1},
-            {"minecraft:wither": 1},
+            {"minecraft:witch": 1},
             {"minecraft:pillager": 1},
             {"minecraft:evocation_illager": 1}
         ],
@@ -118,24 +111,24 @@ class MobsSpawnServerModule:
             {"minecraft:zombie": 5, "minecraft:zombie_villager_v2": 5, "minecraft:drowned": 5, "minecraft:husk": 5,
                 "minecraft:skeleton": 5, "minecraft:phantom": 5, "minecraft:ghast": 2},
             {"minecraft:magma_cube": 20, "minecraft:blaze": 2},
-            {"minecraft:evocation_illager": 4, "minecraft:pillager": 10, "minecraft:vindicator": 10, "minecraft:wither": 3},
+            {"minecraft:evocation_illager": 4, "minecraft:pillager": 10, "minecraft:vindicator": 10, "minecraft:witch": 3},
             {"minecraft:enderman": 20, "minecraft:endermite": 10},
             {"secret_war:spider_jockey": 5, "secret_war:chicken_jockey": 10, "secret_war:skeleton_jockey": 5}
         ],
         # 级别7
         7: [
-            {"minecraft:iron_golem": 2, "minecraft:zombie_villager_v2": 20, "minecraft:wither": 2},
+            {"minecraft:iron_golem": 2, "minecraft:zombie_villager_v2": 20, "minecraft:witch": 2},
             {"minecraft:ravager": 2, "minecraft:evocation_illager": 5, "minecraft:vindicator": 10, "minecraft:stray": 5},
             {"minecraft:iron_golem": 5, "minecraft:snow_golem": 20}
         ],
         # 级别8
         8: [
-            {"minecraft:ender_dragon": 1}
+            {"secret_war:ender_dragon": 1}
         ]
     }
 
     # 间隔时间 (>10)
-    intervals = 15
+    intervals = 40
 
     timer = 0
     timerBroadcast = 0
@@ -145,6 +138,16 @@ class MobsSpawnServerModule:
     def __init__(self, system, namespace, systemName):
         logger.info("===== MobsSpawnServerModule Init =====")
         self.system = system
+
+        self.SecretWarEntitysList = {
+            "secret_war:empty": self.entitysEmpty,
+            "secret_war:ender_dragon": self.entityEnderDragon,
+            "secret_war:chicken_jockey": self.entitysChickenJockey,
+            # "secret_war:spider_jockey": self.secretWarEntitys,
+            # "secret_war:zombie_big": self.secretWarEntitys,
+            # "secret_war:zombie_baby": self.secretWarEntitys,
+            # "secret_war:skeleton_jockey": self.secretWarEntitys
+        }
 
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
@@ -177,14 +180,22 @@ class MobsSpawnServerModule:
 
     def OnStartMobsSpawn(self, data):
         self.playerId = data.get("playerId", "")
+        self.OnStopMobsSpawn("")
         self.MobsSpawn(0)
+
+    def OnStopMobsSpawn(self, data):
+        comp = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+        if self.timer != 0:
+            comp.CancelTimer(self.timer)
+        if self.timerBroadcast != 0:
+            comp.CancelTimer(self.timerBroadcast)
 
     # 定义功能封装
     def MobsSpawn(self, waveNum):
         # 显示用波数
         showWaveNum = waveNum
         compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
-        self.NotifyOneMessageToAllPlay("第{}波来袭！".format(waveNum + 1))
+        self.TitleAllPlay("第{}波来袭！".format(waveNum + 1))
         # 扫描列表 按规则检索出怪物
         if waveNum >= len(self.MobsSpawnList):
             waveNum = len(self.MobsSpawnList) - 1
@@ -197,25 +208,47 @@ class MobsSpawnServerModule:
                 )
         # 添加下次计时器
         self.timer = compGame.AddTimer(self.intervals, self.MobsSpawn, showWaveNum + 1)
-        self.timerBroadcast = compGame.AddTimer(self.intervals - 10, self.NotifyOneMessageToAllPlay, "下一波即将在10s后来临")
+        if self.intervals > 10:
+            self.timerBroadcast = compGame.AddTimer(self.intervals - 10, self.NotifyOneMessageToAllPlay, "下一波即将在10s后来临")
 
     # 通过字典生成实体
     def MobsSpawnFromDict(self, pos, mobDict):
         for mobName, count in mobDict.items():
             for i in range(count):
                 logger.info("{} 生成 {}".format(pos, mobName))
+                # 限制刷怪器
+
                 if mobName in self.SecretWarEntitysList:
-                    self.CreateEntityByTypeStr(mobName)
+                    self.CreateEntityByTypeStr(pos, mobName)
                 else:
                     entityId = self.system.CreateEngineEntityByTypeStr(mobName, pos, (0, 0))
                     # print(entityId)
 
     # 通知消息到每一个玩家
     def NotifyOneMessageToAllPlay(self, msg):
-        for i in serverApi.GetPlayerList():
-            compMsg = serverApi.CreateComponent(i, "Minecraft", "msg")
-            compMsg.NotifyOneMessage(i, msg, "§c")
+        for p in serverApi.GetPlayerList():
+            compMsg = serverApi.CreateComponent(p, "Minecraft", "msg")
+            compMsg.NotifyOneMessage(p, msg, "§c")
+
+    def TitleAllPlay(self, msg):
+        compCommand = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "command")
+        if serverApi.GetPlayerList()[0] is not None:
+            compCommand.SetCommand("/title @a title §c{}".format(msg), serverApi.GetPlayerList()[0])
 
     # 生成代码定义的实体
-    def CreateEntityByTypeStr(self, mobName):
-        pass
+    def CreateEntityByTypeStr(self, pos, mobName):
+        self.SecretWarEntitysList[mobName](pos)
+
+    # # 代码定义实体
+    def entitysEmpty(self, pos):
+        self.TitleAllPlay("本回合休整")
+
+    def entityEnderDragon(self, pos):
+        self.NotifyOneMessageToAllPlay("boss暂时空缺")
+        # compCommand = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "command")
+        # if serverApi.GetPlayerList()[0] is not None:
+        #     compCommand.SetCommand("/summon ender_drago {} {} {}".format(pos[0], pos[1], pos[2]), serverApi.GetPlayerList()[0])
+
+    def entitysChickenJockey(self, pos):
+        entityId = self.system.CreateEngineEntityByTypeStr("", pos, (0, 0))
+        entityId2 = self.system.CreateEngineEntityByTypeStr("", pos, (0, 0))

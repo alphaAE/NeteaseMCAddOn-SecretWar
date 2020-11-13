@@ -1,0 +1,1105 @@
+{
+   "btnAttack@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 91,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "btnBowAntimatterHaz41@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 96,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "btnBowFlame@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 93,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "btnBowHunter@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 95,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "btnBowStrong@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 94,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "btnClose@common.button" : {
+      "$default_texture" : "textures/ui/empty",
+      "$hover_texture" : "textures/ui/empty",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/ui/empty",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 90,
+      "offset" : [ 55.50, -89.50 ],
+      "size" : [ 19.0, 19.0 ],
+      "visible" : true
+   },
+   "btnEggExclusivePreciousHunter@common.button" : {
+      "$default_texture" : "textures/netease/common/button/default",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "normal",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "购买",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/netease/common/button/pressed",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@shopHunter.default" : {}
+         },
+         {
+            "hover@shopHunter.hover" : {}
+         },
+         {
+            "pressed@shopHunter.pressed" : {}
+         },
+         {
+            "button_label@shopHunter.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 92,
+      "offset" : [ 39.50, 0.0 ],
+      "size" : [ 31.0, 14.0 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "default" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "hover" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image12" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 8,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 14.0 ],
+      "texture" : "textures/ui/attack",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 18, 17 ],
+      "visible" : true
+   },
+   "image13" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 10,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image15" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 18,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 16.0 ],
+      "texture" : "textures/ui/egg_exclusive_precious_hunter",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image16" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 20,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image18" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 27,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 17.0 ],
+      "texture" : "textures/ui/bow_flame_standby",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image19" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 29,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image21" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 36,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 17.0 ],
+      "texture" : "textures/ui/bow_strong_standby",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image22" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 38,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image24" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 45,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 17.0 ],
+      "texture" : "textures/ui/bow_hunter_standby",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 30, 31 ],
+      "visible" : true
+   },
+   "image25" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 47,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image27" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 58,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -40.0, 0.0 ],
+      "size" : [ 18.0, 17.0 ],
+      "texture" : "textures/ui/bow_antimatter_haz41_standby",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "image28" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 60,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -23.50, 4.50 ],
+      "size" : [ 11.0, 11.0 ],
+      "texture" : "textures/ui/coin",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 32, 32 ],
+      "visible" : true
+   },
+   "itemAttack" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnAttack@shopHunter.btnAttack" : {}
+         },
+         {
+            "label11@shopHunter.label11" : {}
+         },
+         {
+            "image12@shopHunter.image12" : {}
+         },
+         {
+            "label12@shopHunter.label12" : {}
+         },
+         {
+            "image13@shopHunter.image13" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 2,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, -52.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "itemBowAntimatterHaz41" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnBowAntimatterHaz41@shopHunter.btnBowAntimatterHaz41" : {}
+         },
+         {
+            "label21@shopHunter.label21" : {}
+         },
+         {
+            "image27@shopHunter.image27" : {}
+         },
+         {
+            "label22@shopHunter.label22" : {}
+         },
+         {
+            "image28@shopHunter.image28" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 48,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 72.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "itemBowFlame" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnBowFlame@shopHunter.btnBowFlame" : {}
+         },
+         {
+            "label15@shopHunter.label15" : {}
+         },
+         {
+            "image18@shopHunter.image18" : {}
+         },
+         {
+            "label16@shopHunter.label16" : {}
+         },
+         {
+            "image19@shopHunter.image19" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 21,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, -2.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "itemBowHunter" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnBowHunter@shopHunter.btnBowHunter" : {}
+         },
+         {
+            "label19@shopHunter.label19" : {}
+         },
+         {
+            "image24@shopHunter.image24" : {}
+         },
+         {
+            "label20@shopHunter.label20" : {}
+         },
+         {
+            "image25@shopHunter.image25" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 39,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 47.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "itemBowStrong" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnBowStrong@shopHunter.btnBowStrong" : {}
+         },
+         {
+            "label17@shopHunter.label17" : {}
+         },
+         {
+            "image21@shopHunter.image21" : {}
+         },
+         {
+            "label18@shopHunter.label18" : {}
+         },
+         {
+            "image22@shopHunter.image22" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 30,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 22.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "itemEggExclusivePreciousHunter" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "btnEggExclusivePreciousHunter@shopHunter.btnEggExclusivePreciousHunter" : {}
+         },
+         {
+            "label13@shopHunter.label13" : {}
+         },
+         {
+            "image15@shopHunter.image15" : {}
+         },
+         {
+            "label14@shopHunter.label14" : {}
+         },
+         {
+            "image16@shopHunter.image16" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 12,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, -27.50 ],
+      "size" : [ 120.0, 27.0 ],
+      "texture" : "textures/ui/shop_item_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 582, 113 ],
+      "visible" : true
+   },
+   "label11" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 7,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "10",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label12" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 9,
+      "line_padding" : 0.0,
+      "offset" : [ -3.50, -4.0 ],
+      "shadow" : false,
+      "size" : [ 47.0, 10.0 ],
+      "text" : "增加攻击力量",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label13" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 17,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "15",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label14" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 19,
+      "line_padding" : 0.0,
+      "offset" : [ -4.0, -4.0 ],
+      "shadow" : false,
+      "size" : [ 46.0, 10.0 ],
+      "text" : "丛林珍贵生物蛋",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label15" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 26,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "10",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label16" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 28,
+      "line_padding" : 0.0,
+      "offset" : [ -3.50, -4.0 ],
+      "shadow" : false,
+      "size" : [ 47.0, 10.0 ],
+      "text" : "燃烧连弩",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label17" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 35,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "20",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label18" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 37,
+      "line_padding" : 0.0,
+      "offset" : [ -3.50, -4.0 ],
+      "shadow" : false,
+      "size" : [ 47.0, 10.0 ],
+      "text" : "强击连弩",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label19" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 44,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "30",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label20" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 46,
+      "line_padding" : 0.0,
+      "offset" : [ -3.50, -4.0 ],
+      "shadow" : false,
+      "size" : [ 47.0, 10.0 ],
+      "text" : "猎人之弩",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label21" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 53,
+      "line_padding" : 0.0,
+      "offset" : [ -6.50, 5.0 ],
+      "shadow" : false,
+      "size" : [ 19.0, 8.0 ],
+      "text" : "40",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label22" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.5899999737739563,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 59,
+      "line_padding" : 0.0,
+      "offset" : [ 5.50, -3.0 ],
+      "shadow" : false,
+      "size" : [ 65.0, 10.0 ],
+      "text" : "HAZ-41型反物质发射器",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label23" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 0.6999999880790710,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 11,
+      "line_padding" : 0.0,
+      "offset" : [ -41.0, -66.0 ],
+      "shadow" : false,
+      "size" : [ 38.0, 10.0 ],
+      "text" : "猎人商店",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "mainPanel@shopHunter.mainPanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "mainPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "menuPanel@shopHunter.menuPanel" : {}
+         }
+      ],
+      "layer" : 0,
+      "offset" : [ 0, 0 ],
+      "size" : [ "100%+0 px", "100%+0px" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "menuPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "itemAttack@shopHunter.itemAttack" : {}
+         },
+         {
+            "itemEggExclusivePreciousHunter@shopHunter.itemEggExclusivePreciousHunter" : {}
+         },
+         {
+            "itemBowFlame@shopHunter.itemBowFlame" : {}
+         },
+         {
+            "itemBowStrong@shopHunter.itemBowStrong" : {}
+         },
+         {
+            "itemBowHunter@shopHunter.itemBowHunter" : {}
+         },
+         {
+            "itemBowAntimatterHaz41@shopHunter.itemBowAntimatterHaz41" : {}
+         },
+         {
+            "label23@shopHunter.label23" : {}
+         },
+         {
+            "btnClose@shopHunter.btnClose" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 1,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 9.0, -3.50 ],
+      "size" : [ "-4.0%+154.0px", 215.0 ],
+      "texture" : "textures/ui/shop_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 677, 1000 ],
+      "visible" : true
+   },
+   "namespace" : "shopHunter",
+   "pressed" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   }
+}

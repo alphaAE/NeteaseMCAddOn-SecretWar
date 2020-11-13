@@ -222,27 +222,20 @@
         "priority": 2,
         "entity_types": [
           {
-            "filters": {  
-                "any_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "snowgolem"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "irongolem"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "wandering_trader"}
-                ] 
-            },
-            "max_dist": 20
-          },
-          {
             "filters": {
-              "all_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_baby" }
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
               ]
             },
-            "max_dist": 20
+            "max_dist": 512
           }
         ],
-        "must_see": true
+        "must_see": false
+      },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
       },
 
       "minecraft:behavior.look_at_player": {
@@ -255,9 +248,7 @@
         "look_distance": 8.0,
         "filters": { "test" :  "is_family", "subject" : "other", "value" :  "mob" }
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
+
       "minecraft:persistent": {
       },
       "minecraft:physics": {
@@ -265,9 +256,6 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
-      },
-      "minecraft:follow_range": {
-        "value": 64
       }
     },
     "events": {

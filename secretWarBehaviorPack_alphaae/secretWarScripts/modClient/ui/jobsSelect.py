@@ -16,6 +16,7 @@ class JobsSelectScreen(ScreenNode):
         ScreenNode.__init__(self, namespace, name, param)
         self.playerId = clientApi.GetLocalPlayerId()
 
+        self.btnClose = "/btnClose"
         self.panelSelect = "/panelSelect"
         self.panelHunter = self.panelSelect + "/panelHunter"
         self.btnSelectHunter = self.panelHunter + "/btnSelectHunter"
@@ -24,13 +25,20 @@ class JobsSelectScreen(ScreenNode):
 
     # Create函数是继承自ScreenNode，会在UI创建完成后被调用
     def Create(self):
+        self.AddTouchEventHandler(self.btnClose, self.OnBtnClose, {"isSwallow": True})
         self.AddTouchEventHandler(self.btnSelectHunter, self.OnBtnSelectHunter, {"isSwallow": True})
         self.AddTouchEventHandler(self.btnSelectMage, self.OnBtnSelectMage, {"isSwallow": True})
-        pass
 
     # 界面的一些初始化操作
     def Init(self, system):
         self.system = system
+
+    # OnButton
+    def OnBtnClose(self, args):
+        touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
+        touchEvent = args["TouchEvent"]
+        if touchEvent == touchEventEnum.TouchUp:
+            self.SetRemove()
 
     def OnBtnSelectHunter(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
@@ -41,7 +49,7 @@ class JobsSelectScreen(ScreenNode):
             eventArgs["playerId"] = self.playerId
             eventArgs["jobs"] = modConfig.JobsHunter
             self.system.NotifyToServer(modConfig.JobsSelectEvent, eventArgs)
-            self.CloneScreen()
+            self.SetRemove()
 
     def OnBtnSelectMage(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
@@ -52,7 +60,5 @@ class JobsSelectScreen(ScreenNode):
             eventArgs["playerId"] = self.playerId
             eventArgs["jobs"] = modConfig.JobsMage
             self.system.NotifyToServer(modConfig.JobsSelectEvent, eventArgs)
-            self.CloneScreen()
+            self.SetRemove()
 
-    def CloneScreen(self):
-        self.SetVisible("/", False)

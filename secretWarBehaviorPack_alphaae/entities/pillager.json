@@ -194,10 +194,6 @@
           "within_radius_event": {
             "event": "minecraft:synchronized_ranged_mode",
             "target": "self"
-          },
-          "hurt_by_target_event": {
-            "event": "minecraft:synchronized_ranged_mode",
-            "target": "self"
           }
         },
         "minecraft:behavior.move_to_random_block": {
@@ -306,45 +302,27 @@
       "minecraft:behavior.float": {
         "priority": 0
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1,
-        "entity_types": {
-          "filters": {
-            "test": "is_family",
-            "subject": "other",
-            "operator": "!=",
-            "value": "illager"
-          },
-          "max_dist": 64
-        }
-      },
+
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
-        "within_radius": 16.0,
-        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
               "any_of": [
                 { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "villager" }
               ]
             },
-            "max_dist": 16
-          },
-          {
-            "filters": {
-              "all_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_baby" }
-              ]
-            },
-            "max_dist": 16
+            "max_dist": 512
           }
         ],
-        "must_see": true
+        "must_see": false
       },
+      "minecraft:follow_range": {
+        "value": 512,
+        "max": 512
+      },
+
       "minecraft:behavior.random_stroll": {
         "priority": 7,
         "speed_multiplier": 1
@@ -367,9 +345,6 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
-      },
-      "minecraft:follow_range": {
-        "value": 64
       }
     },
 

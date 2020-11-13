@@ -67,25 +67,24 @@
         "charge_charged_trigger": 1
       },
       "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
+        "value": 512,
+        "max": 512
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
+
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "entity_types": [
           {
             "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" }
+              ]
             },
-            "max_dist": 28
+            "max_dist": 512
           }
         ],
-        "must_see": true
+        "must_see": false
       },
       "minecraft:physics": {
       },
