@@ -10,24 +10,17 @@ from secretWarScripts.modCommon import modVarPool
 from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
 
-class AffixServerModule:
-
-    affix = {
-        "id": {
-            "name": "",
-            "fun": ""
-        }
-    }
+class EggServerModule:
 
     def __init__(self, system, namespace, systemName):
-        logger.info("===== AffixServerModule Init =====")
+        logger.info("===== BasicInitServerModule Init =====")
         self.system = system
 
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
         self.eventList = []
         self.eventAndCallbackList = [
-            ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent]
+            # ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent]
         ]
         self.userEventAndCallbackList = []
 
@@ -39,6 +32,7 @@ class AffixServerModule:
         self.listenEventUtil.DestroyAll(self.eventList, self.eventAndCallbackList, self.userEventAndCallbackList)
 
     # CallBack
+    # 客户端加载Addon完成时回调
     def OnPlayerAttackEntityEvent(self, data):
         playerId = data.get("playerId", "")
         comp = serverApi.CreateComponent(playerId, 'Minecraft', 'item')
@@ -46,21 +40,6 @@ class AffixServerModule:
         if item is None:
             return
         itemName = item.get("itemName", "")
-        if itemName == "secret_war:test":
-            victimId = data.get("victimId", "")
-            # 测试给予词缀
-            print victimId
-            # 设置名牌
-            compName = serverApi.CreateComponent(victimId, "Minecraft", "name")
-            compName.SetName("new Name")
-            # 增大模型
-            compScale = serverApi.CreateComponent(victimId, "Minecraft", "scale")
-            scale = compScale.GetEntityScale()
-            compScale.SetEntityScale(victimId, scale + 0.5)
-            # 增大碰撞箱
-            compCollisionBox = serverApi.CreateComponent(victimId, "Minecraft", "collisionBox")
-            size = compCollisionBox.GetSize()
-            compCollisionBox.SetSize((size[0] + 0.2, size[1] + 0.2))
-
+        if itemName == "secret_war:egg_exclusive_precious_hunter":
+            pass
             data["cancel"] = True
-    # 定义功能封装

@@ -2,15 +2,26 @@
   "format_version": "1.13.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "minecraft:iron_golem",
+      "identifier": "secret_war:my_iron_golem2",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:iron_golem"
     },
 
     "component_groups": {
       "minecraft:player_created": {
-
+        "minecraft:behavior.hurt_by_target": {
+          "priority": 2,
+          "entity_types": {
+            "filters": { 
+                "all_of": [
+                  { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "player"},
+                  { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "creeper"}
+                ] 
+            }
+          }
+        }
       },
       "minecraft:village_created": {
         "minecraft:behavior.defend_village_target": {
@@ -30,7 +41,7 @@
 
     "components": {
       "minecraft:type_family": {
-        "family": [ "irongolem", "mob", "swmob" ]
+        "family": [ "irongolem", "mob" ]
       },
       "minecraft:nameable": {
       },
@@ -224,27 +235,20 @@
         "priority": 8
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 1,
-        "reselect_targets": true,
+        "priority": 3,
         "entity_types": [
           {
-            "filters": {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "villager" }
-              ]
+            "filters": { 
+                "all_of": [
+                  { "test" :  "is_family", "subject" : "other", "value" :  "swmob"}
+                ] 
             },
-            "max_dist": 512
+            "within_default": 10
           }
         ],
-        "inside_radius": 512,
-        "must_see": true
+        "must_see": true,
+        "must_reach": true
       },
-      "minecraft:follow_range": {
-        "value": 512,
-        "max": 512
-      },
-	  
       "minecraft:persistent": {
       },
       "minecraft:physics": {
@@ -252,6 +256,9 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:follow_range": {
+        "value": 64
       }
     },
 

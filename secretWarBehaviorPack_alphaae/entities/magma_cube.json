@@ -83,7 +83,7 @@
         "on_death": "query.last_hit_by_player ? query.variant : 0"
       },
       "minecraft:type_family": {
-        "family": [ "magmacube", "monster", "mob" ]
+        "family": [ "magmacube", "monster", "mob", "swmob" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -131,7 +131,8 @@
         "priority": 5
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
+        "priority": 1,
+        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
@@ -143,7 +144,8 @@
             "max_dist": 512
           }
         ],
-        "must_see": false
+        "inside_radius": 512,
+        "must_see": true
       },
       "minecraft:follow_range": {
         "value": 512,

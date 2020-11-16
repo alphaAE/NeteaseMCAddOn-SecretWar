@@ -118,12 +118,25 @@ class CurrencyServerModule:
         if difference >= 0:
             self.SetPlayerCurrency(playerId, difference)
             if itemStr == "secret_war:attack":
+                compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
+                maxDamage = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
+                compAttr.SetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE, maxDamage + 2)
+                maxDamage = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
+                self.NotifyOneMessageToPlay(playerId, "攻击力加强到了[{}]！".format(maxDamage))
                 return
             elif itemStr == "secret_war:health":
+                compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
+                maxHealth = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH)
+                compAttr.SetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, maxHealth + 5)
+                maxHealth = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH)
+                # 回复至满
+                compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, maxHealth)
+                self.NotifyOneMessageToPlay(playerId, "已经为你提升生命上限到[{}]！".format(maxHealth))
                 return
             else:
                 self.GivePlayersItem(playerId, itemStr)
                 self.NotifyOneMessageToPlay(playerId, "拿着，让怪物们尝尝这家伙！")
+                return
         else:
             self.NotifyOneMessageToPlay(playerId, "你的金币数量不够！")
         # print playerId, itemStr, modConfig.shopItem[itemStr]

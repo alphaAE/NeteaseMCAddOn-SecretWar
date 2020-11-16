@@ -16,6 +16,7 @@ from secretWarScripts.modServer.serverSystem.module.affixServerModule import Aff
 from secretWarScripts.modServer.serverSystem.module.mobsSpawnServerModule import MobsSpawnServerModule
 from secretWarScripts.modServer.serverSystem.module.npcServerModule import NPCServerModule
 from secretWarScripts.modServer.serverSystem.module.currencyServerModule import CurrencyServerModule
+from secretWarScripts.modServer.serverSystem.module.eggServerModule import EggServerModule
 
 # 用来打印规范格式的log
 from secretWarScripts.modServer import logger
@@ -48,7 +49,8 @@ class MainServerSystem(ServerSystem):
         self.moduleList.append(MobsSpawnServerModule(self, namespace, systemName))
         self.moduleList.append(NPCServerModule(self, namespace, systemName))
         self.moduleList.append(CurrencyServerModule(self, namespace, systemName))
-
+        self.moduleList.append(EggServerModule(self, namespace, systemName))
+        
     def Destroy(self):
         logger.info("===== Server Destroy =====")
         # UnListenEvent

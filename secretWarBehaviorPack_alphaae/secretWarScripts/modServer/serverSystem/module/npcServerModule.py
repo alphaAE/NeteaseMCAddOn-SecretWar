@@ -36,4 +36,9 @@ class NPCServerModule:
         entityId1 = self.system.CreateEngineEntityByTypeStr("secret_war:npc_mage", (296.5, 5, 72.5), (0, 0))
         entityId2 = self.system.CreateEngineEntityByTypeStr("secret_war:npc_hunter", (288.5, 5, 72.5), (0, 0))
 
+        compName = serverApi.CreateComponent(entityId1, "Minecraft", "name")
+        compName.SetName("职业法师")
+        compName = serverApi.CreateComponent(entityId2, "Minecraft", "name")
+        compName.SetName("职业猎人")
+
     # 定义功能封装

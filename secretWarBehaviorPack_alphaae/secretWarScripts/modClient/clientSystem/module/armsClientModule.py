@@ -22,7 +22,7 @@ class ArmsClientModule:
         self.eventAndCallbackList = []
         self.userEventAndCallbackList = [
             # 客户端自定义的事件 ShootEvent
-            [modConfig.BulletHitEvent, modConfig.ServerSystemName, self.OnBulletHit]
+            # [modConfig.BulletHitEvent, modConfig.ServerSystemName, self.OnBulletHit]
         ]
 
         # ListenEvent

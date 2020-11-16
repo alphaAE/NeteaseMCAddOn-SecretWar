@@ -19,10 +19,12 @@ class JobsServerModule:
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
         self.eventList = [
-            [modConfig.JobsSelectFinished]
+            [modConfig.JobsSelectFinished],
+            [modConfig.StartGame]
         ]
         self.eventAndCallbackList = [
-            ["ServerPlayerTryTouchEvent", self.OnServerPlayerTryTouchEvent]
+            ["ServerPlayerTryTouchEvent", self.OnServerPlayerTryTouchEvent],
+            ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent]
         ]
         self.userEventAndCallbackList = [
             [modConfig.JobsSelectEvent, modConfig.ClientSystemName, self.OnJobsSelectEvent]
@@ -39,8 +41,23 @@ class JobsServerModule:
     # 客户端加载Addon完成时回调
     def OnJobsSelectEvent(self, data):
         self.setJob(data["playerId"], data["jobs"])
-        # 测试获取
-        print data["playerId"], "选择了:", self.getJob(data["playerId"])
+        compName = serverApi.CreateComponent(data["playerId"], "Minecraft", "name")
+        name = compName.GetName()
+        self.NotifyOneMessageToAllPlay("{} 选择了职业 {}".format(name, self.getJob(data["playerId"])))
+        # 给予初始装备
+        if data["jobs"] == modConfig.JobsHunter:
+            self.GivePlayersItem(data["playerId"], "secret_war:bow_flame")
+        elif data["jobs"] == modConfig.JobsMage:
+            self.GivePlayersItem(data["playerId"], "secret_war:staff_toxic")
+        # 检测所有玩家选择职业结束
+        for player in serverApi.GetPlayerList():
+            if self.getJob(player) == "NULL":
+                return
+        # 广播开始游戏
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = data["playerId"]
+        self.system.BroadcastEvent(modConfig.StartGame, eventArgs)
+        print "广播开始游戏"
 
     # 捡起物品时回调 判断是否是合格物品
     def OnServerPlayerTryTouchEvent(self, data):
@@ -52,6 +69,16 @@ class JobsServerModule:
             if itemName in modConfig.canUse:
                 return
             data["cancel"] = True
+
+    # 修改攻击方式 附加上角色伤害AttrMax值
+    def OnPlayerAttackEntityEvent(self, data):
+        playerId = data.get("playerId", "0")
+        victimId = data.get("victimId", "0")
+        if playerId != "0" and victimId != "0":
+            compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
+            playerMaxDamage = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
+            data["damage"] = int(playerMaxDamage)
+            data["isValid"] = 1
 
     # 定义功能封装
     def setJob(self, entityId, job):
@@ -74,3 +101,17 @@ class JobsServerModule:
             return comp.GetAttr(modConfig.ModName + modConfig.JobsAttr).get("job", "NULL")
         except Exception:
             return "NULL"
+
+    # 通知消息到每一个玩家
+    def NotifyOneMessageToAllPlay(self, msg):
+        for p in serverApi.GetPlayerList():
+            compMsg = serverApi.CreateComponent(p, "Minecraft", "msg")
+            compMsg.NotifyOneMessage(p, msg, "§c")
+
+    def GivePlayersItem(self, playerId, itemStr):
+        itemDict = {
+            'itemName': itemStr,
+            'count': 1
+        }
+        compItem = serverApi.CreateComponent(playerId, 'Minecraft', 'item')
+        compItem.SpawnItemToPlayerInv(itemDict, playerId)

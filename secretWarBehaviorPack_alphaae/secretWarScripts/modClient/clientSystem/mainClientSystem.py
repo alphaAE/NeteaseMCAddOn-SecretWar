@@ -28,7 +28,7 @@ class MainClientSystem(ClientSystem):
         self.eventList = []
         self.eventAndCallbackList = []
         self.userEventAndCallbackList = [
-            [modConfig.BulletFlyFrameEvent, modConfig.ServerSystemName, self.OnBulletFlyFrame]
+            # [modConfig.BulletFlyFrameEvent, modConfig.ServerSystemName, self.OnBulletFlyFrame]
         ]
 
         # ListenEvent

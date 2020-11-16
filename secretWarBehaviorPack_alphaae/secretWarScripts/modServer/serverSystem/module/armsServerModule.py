@@ -6,6 +6,8 @@ from secretWarScripts.modCommon import modConfig
 from secretWarScripts.modCommon import modVarPool
 from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 from secretWarScripts.modServer.serverSystem.item.arms import ArmsBowFlame, ArmsBowStrong, ArmsBowHunter, ArmsBowAntimatterHaz41
+from secretWarScripts.modServer.serverSystem.item.arms import ArmsStaffToxic, ArmsStaffSlime, ArmsStaffInvigorating
+from secretWarScripts.modServer.serverSystem.item.arms import ArmsStaffBurstingBlast
 
 # 用来打印规范格式的log
 from secretWarScripts.modServer import logger
@@ -25,7 +27,8 @@ class ArmsServerModule:
         self.eventAndCallbackList = [
             ["ServerItemTryUseEvent", self.OnServerItemTryUseEvent],
             ["ItemReleaseUsingServerEvent", self.OnRangedWeaponReleaseUsingServerEvent],
-            ["ProjectileDoHitEffectEvent", self.OnProjectileHit]
+            ["ProjectileDoHitEffectEvent", self.OnProjectileHit],
+            ["DamageEvent", self.OnDamageEvent]
         ]
         self.userEventAndCallbackList = []
 
@@ -37,11 +40,11 @@ class ArmsServerModule:
             ArmsBowFlame(self.system),
             ArmsBowStrong(self.system),
             ArmsBowHunter(self.system),
-            ArmsBowAntimatterHaz41(self.system)
-        ]
-        # 初始化定义投掷物列表
-        modVarPool.ProjectileList = [
-            "minecraft:arrow"
+            ArmsBowAntimatterHaz41(self.system),
+            ArmsStaffToxic(self.system),
+            ArmsStaffSlime(self.system),
+            ArmsStaffInvigorating(self.system),
+            ArmsStaffBurstingBlast(self.system)
         ]
 
     def Destroy(self):
@@ -77,3 +80,18 @@ class ArmsServerModule:
                 if armsId == arms.id:
                     arms.OnProjectileHit(data)
                     break
+
+    # 屏蔽所有投掷物伤害 并清除实体
+    def OnDamageEvent(self, data):
+        cause = data.get("cause", "")
+        projectileId = data.get("projectileId", "")
+        if cause == "projectile":
+            comp = serverApi.CreateComponent(projectileId, "Minecraft", "modAttr")
+            attr = comp.GetAttr(modConfig.ModName + modConfig.ProjectileAttr)
+            if attr is None:
+                return
+            level = attr.get("level", "-1")
+            if level != "0":
+                data["damage"] = 0
+                self.system.BroadcastToAllClient(modConfig.BulletHitEvent, data)
+                self.system.DestroyEntity(projectileId)

@@ -102,7 +102,7 @@
 
       "unskilled": {
         "minecraft:type_family": {
-          "family": [ "unskilled", "zombie", "zombie_villager", "undead", "monster", "mob" ]
+          "family": [ "unskilled", "zombie", "zombie_villager", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -110,7 +110,7 @@
       },
       "nitwit": {
         "minecraft:type_family": {
-          "family": [ "nitwit", "zombie", "zombie_villager", "undead", "monster", "mob" ]
+          "family": [ "nitwit", "zombie", "zombie_villager", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -118,7 +118,7 @@
       },
       "farmer": {
         "minecraft:type_family": {
-          "family": [ "farmer", "zombie", "zombie_villager", "undead", "monster", "mob" ]
+          "family": [ "farmer", "zombie", "zombie_villager", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -126,7 +126,7 @@
       },
       "fisherman": {
         "minecraft:type_family": {
-          "family": [ "fisherman", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "fisherman", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -134,7 +134,7 @@
       },
       "shepherd": {
         "minecraft:type_family": {
-          "family": [ "shepherd", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "shepherd", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -142,7 +142,7 @@
       },
       "fletcher": {
         "minecraft:type_family": {
-          "family": [ "fletcher", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "fletcher", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -151,7 +151,7 @@
 
       "librarian": {
         "minecraft:type_family": {
-          "family": [ "librarian", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "librarian", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -160,7 +160,7 @@
 
       "cartographer": {
         "minecraft:type_family": {
-          "family": [ "cartographer", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "cartographer", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -169,7 +169,7 @@
 
       "cleric": {
         "minecraft:type_family": {
-          "family": [ "cleric", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "cleric", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -178,7 +178,7 @@
 
       "armorer": {
         "minecraft:type_family": {
-          "family": [ "armorer", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "armorer", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -186,7 +186,7 @@
       },
       "weaponsmith": {
         "minecraft:type_family": {
-          "family": [ "weaponsmith", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "weaponsmith", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -194,7 +194,7 @@
       },
       "toolsmith": {
         "minecraft:type_family": {
-          "family": [ "toolsmith", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "toolsmith", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -203,7 +203,7 @@
 
       "butcher": {
         "minecraft:type_family": {
-          "family": [ "butcher", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "butcher", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -211,7 +211,7 @@
       },
       "leatherworker": {
         "minecraft:type_family": {
-          "family": [ "leatherworker", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "leatherworker", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -219,7 +219,7 @@
       },
       "mason": {
         "minecraft:type_family": {
-          "family": [ "mason", "zombie_villager", "zombie", "undead", "monster", "mob" ]
+          "family": [ "mason", "zombie_villager", "zombie", "undead", "monster", "mob", "swmob" ]
         },
         "minecraft:variant": {
           "value": 0
@@ -399,7 +399,8 @@
       },
 
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
+        "priority": 1,
+        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
@@ -411,7 +412,8 @@
             "max_dist": 512
           }
         ],
-        "must_see": false
+        "inside_radius": 512,
+        "must_see": true
       },
       "minecraft:follow_range": {
         "value": 512,

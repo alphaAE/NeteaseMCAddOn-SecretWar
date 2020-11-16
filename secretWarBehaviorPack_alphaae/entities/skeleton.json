@@ -71,7 +71,7 @@
         "height": 1.9
       },
       "minecraft:type_family": {
-        "family": [ "skeleton", "undead", "monster", "mob" ]
+        "family": [ "skeleton", "undead", "monster", "mob", "swmob" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -115,6 +115,12 @@
       "minecraft:equipment": {
         "table": "loot_tables/entities/skeleton_gear.json"
       },
+      "minecraft:behavior.find_mount": {
+        "priority": 1,
+        "within_radius": 16,
+        "start_delay": 15,
+        "max_failed_attempts": 20
+      },
       "minecraft:shooter": {
         "type": "Arrow",
         "def": "minecraft:arrow"
@@ -137,7 +143,8 @@
       },
 
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
+        "priority": 1,
+        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
@@ -149,6 +156,7 @@
             "max_dist": 512
           }
         ],
+        "inside_radius": 512,
         "must_see": true
       },
       "minecraft:follow_range": {

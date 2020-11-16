@@ -12,6 +12,8 @@ from secretWarScripts.modCommon.listenEventUtil import ListenEventUtil
 
 class BasicInitServerModule:
 
+    init = 0
+
     def __init__(self, system, namespace, systemName):
         logger.info("===== BasicInitServerModule Init =====")
         self.system = system
@@ -23,10 +25,13 @@ class BasicInitServerModule:
             [modConfig.CreateNPCEvent]
         ]
         self.eventAndCallbackList = [
+            ["AddServerPlayerEvent", self.OnAddServerPlayerEvent],
             ["ClientLoadAddonsFinishServerEvent", self.OnClientLoadAddonsFinishServerEvent],
             ["CommandEvent", self.OnCommandEvent]
         ]
-        self.userEventAndCallbackList = []
+        self.userEventAndCallbackList = [
+            [modConfig.StartGame, modConfig.ServerSystemName, self.OnStartGame]
+        ]
 
         # ListenEvent
         self.listenEventUtil.InitAll(self.eventList, self.eventAndCallbackList, self.userEventAndCallbackList)
@@ -42,12 +47,12 @@ class BasicInitServerModule:
         # 游戏字典
         gameRuleDict = {
             'option_info': {
-                'pvp': True,                        # 玩家伤害
+                'pvp': False,                       # 玩家伤害
                 'show_coordinates': True,           # 显示坐标
                 'fire_spreads': False,              # 火焰蔓延
                 'tnt_explodes': False,              # tnt爆炸
                 'mob_loot': False,                  # 生物战利品
-                'natural_regeneration': False,      # 自然生命恢复
+                'natural_regeneration': True,       # 自然生命恢复
                 'tile_drops': False,                # 方块掉落
                 'immediate_respawn': True           # 作弊开启
             },
@@ -57,7 +62,7 @@ class BasicInitServerModule:
                 'mob_griefing': False,              # 生物破坏
                 'keep_inventory': True,             # 保留物品栏
                 'weather_cycle': True,              # 天气更替
-                'mob_spawn': False,                  # 生物生成
+                'mob_spawn': False,                 # 生物生成
                 'entities_drop_loot': False,        # 实体掉落
                 'daylight_cycle': False,            # 开启昼夜交替
                 'command_blocks_enabled': False     # 启用方块命令
@@ -67,26 +72,44 @@ class BasicInitServerModule:
         comp.SetGameRulesInfoServer(gameRuleDict)
         logger.info("存档保护规则字典启用")
 
-        # 初始化角色物品、货币、状态
-        pass
+    # 初始化角色物品、状态
+    def OnAddServerPlayerEvent(self, data):
+        playerId = data.get("id", "0")
+        if playerId != "0":
+            # 初始化攻击 生命 速度
+            compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
+            compAttr.SetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE, 1)
+            compAttr.SetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, 40)
+            compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, 40)
+            compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.SPEED, 0.15)
+            # 首次进入重置
+            if self.init == 0:
+                self.init = 1
+                self.KillAllEntity(playerId)
 
     def OnCommandEvent(self, data):
         entityId = data.get("entityId", "")
         command = data.get("command", "")
-        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
-
         if command == "/sw s":
-            self.KillAllEntity(entityId)
-            # 通知MobsSpawnServerModule开始刷新怪物
-            compGame.AddTimer(4.0, self.BroadcastStartMobsSpawn, entityId)
+            self.start(entityId)
         elif command == "/sw npc":
-            eventArgs = self.system.CreateEventData()
-            eventArgs["playerId"] = entityId
-            self.system.BroadcastEvent(modConfig.CreateNPCEvent, eventArgs)
+            self.BroadcastSpawnNPC(entityId)
         elif command == "/sw k":
             self.KillAllEntity(entityId)
 
+    def OnStartGame(self, data):
+        entityId = data.get("entityId", "")
+        self.start(entityId)
     # 定义功能封装
+
+    def start(self, entityId):
+        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+        self.KillAllEntity(entityId)
+        # 通知MobsSpawnServerModule开始刷新怪物
+        compGame.AddTimer(4.0, self.BroadcastStartMobsSpawn, entityId)
+        compGame.AddTimer(4.0, self.BroadcastSpawnNPC, entityId)
+        modVarPool.MobPool.clear()
+
     # 杀死所有附近非玩家实体
     def killAllOtherEntity(self, entityId):
         filters = {
@@ -111,6 +134,12 @@ class BasicInitServerModule:
         eventArgs = self.system.CreateEventData()
         eventArgs["playerId"] = entityId
         self.system.BroadcastEvent(modConfig.StartMobsSpawn, eventArgs)
+
+    # 通知生成NPC
+    def BroadcastSpawnNPC(self, entityId):
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = entityId
+        self.system.BroadcastEvent(modConfig.CreateNPCEvent, eventArgs)
 
     def KillAllEntity(self, entityId):
         # 多次杀死所有附近非玩家实体 (防止史莱姆)

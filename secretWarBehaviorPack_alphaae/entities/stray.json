@@ -119,7 +119,8 @@
       },
 
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
+        "priority": 1,
+        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
@@ -131,7 +132,8 @@
             "max_dist": 512
           }
         ],
-        "must_see": false
+        "inside_radius": 512,
+        "must_see": true
       },
       "minecraft:follow_range": {
         "value": 512,
@@ -169,7 +171,7 @@
         "priority": 6
       },
       "minecraft:type_family": {
-        "family": [ "stray", "skeleton", "monster", "mob", "undead" ]
+        "family": [ "stray", "skeleton", "monster", "mob", "undead", "swmob" ]
       },
       "minecraft:physics": {
       },

@@ -30,6 +30,7 @@ canUse = [
     "secret_war:bone_meal_wolf",
     "secret_war:coin",
     "secret_war:egg_exclusive_precious",
+    "minecraft:baked_potato",
     "secret_war:test"
 ]
 
@@ -73,6 +74,18 @@ shopItem = {
     "secret_war:health": 10,
 }
 
+# MobType
+MobTypeOrdinary = 0
+MobTypeElite = 1
+MobTypeBoss = 2
+
+# 怪物定义掉落数
+MobLootCount = {
+    MobTypeOrdinary: 1,
+    MobTypeElite: 2,
+    MobTypeBoss: 3
+}
+
 # Attr标识符
 ProjectileAttr = "ProjectileAttr"
 JobsAttr = "JobsAttr"
@@ -102,6 +115,7 @@ ShopHunterUIScreenDef = "shopHunter.main"
 JobsSelectEvent = "JobsSelectEvent"
 JobsSelectFinished = "JobsSelectFinished"
 StartMobsSpawn = "StartMobsSpawn"
+StartGame = "StartGame"
 PlayerStartButton = "PlayerStartButton"
 CreateNPCEvent = "CreateNPCEvent"
 PlayerBuyEvent = "PlayerBuyEvent"
