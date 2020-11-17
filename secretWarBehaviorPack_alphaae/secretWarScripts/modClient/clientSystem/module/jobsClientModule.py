@@ -67,16 +67,15 @@ class JobsClientModule:
     def OnStopMobsSpawn(self, args):
         print args
         # 展示结算Ui
-        pass
         clientApi.RegisterUI(
             modConfig.ModName,
             modConfig.StopGameUIName,
             modConfig.StopGameUIPyClsPath,
             modConfig.StopGameUIScreenDef
         )
-        self.mStopGameUINode = clientApi.CreateUI(modConfig.ModName, modConfig.JobsSelectUIName, {"isHud": 0})
+        self.mStopGameUINode = clientApi.CreateUI(modConfig.ModName, modConfig.JobsSelectUIName, {"isHud": 1})
         if self.mStopGameUINode:
-            self.mStopGameUINode.Init(self.system)
+            self.mStopGameUINode.Init(self.system, args)
         else:
             logger.error("create ui %s failed!" % modConfig.JobsSelectUIScreenDef)
 

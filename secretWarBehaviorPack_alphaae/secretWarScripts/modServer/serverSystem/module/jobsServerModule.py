@@ -145,12 +145,12 @@ class JobsServerModule:
             compPlayer.SetPlayerGameType(3)
         # 检测所有玩家游戏模式判断 是否结束
         for p in serverApi.GetPlayerList():
-            gameType = compGame.GetPlayerGameType(playerId)     
+            gameType = compGame.GetPlayerGameType(playerId)
             if gameType != 3:
                 return
         # 结束游戏
         self.StopGame(playerId)
-        
+
     # 多次杀死所有附近非玩家实体 (防止史莱姆)
     def KillAllEntity(self, entityId):
         compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
@@ -169,6 +169,7 @@ class JobsServerModule:
         for p in serverApi.GetPlayerList():
             eventArgs = self.system.CreateEventData()
             eventArgs["playerId"] = playerId
+            eventArgs["jobs"] = self.getJob(playerId)
             eventArgs["playerKillMobNum"] = modVarPool.PlayerKillMobNum
             eventArgs["damage"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
             eventArgs["health"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH)

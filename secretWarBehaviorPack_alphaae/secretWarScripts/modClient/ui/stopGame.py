@@ -26,8 +26,14 @@ class StopGameScreen(ScreenNode):
         self.AddTouchEventHandler(self.btnClose, self.OnBtnClose, {"isSwallow": True})
 
     # 界面的一些初始化操作
-    def Init(self, system):
+    def Init(self, system, data):
         self.system = system
+        jobs = data.get("jobs", "0")
+        playerKillMobNum = data.get("playerKillMobNum", "0")
+        damage = data.get("damage", "0")
+        health = data.get("health", "0")
+        # 设置数值
+        pass
 
     # OnButton
     def OnBtnClose(self, args):
