@@ -20,11 +20,14 @@ class JobsServerModule:
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
         self.eventList = [
             [modConfig.JobsSelectFinished],
-            [modConfig.StartGame]
+            [modConfig.StartGame],
+            [modConfig.StopMobsSpawn]
         ]
         self.eventAndCallbackList = [
             ["ServerPlayerTryTouchEvent", self.OnServerPlayerTryTouchEvent],
-            ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent]
+            ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent],
+            ["AddServerPlayerEvent", self.OnAddServerPlayerEvent],
+            ["PlayerDieEvent", self.OnPlayerDieEvent]
         ]
         self.userEventAndCallbackList = [
             [modConfig.JobsSelectEvent, modConfig.ClientSystemName, self.OnJobsSelectEvent]
@@ -61,6 +64,10 @@ class JobsServerModule:
 
     # 捡起物品时回调 判断是否是合格物品
     def OnServerPlayerTryTouchEvent(self, data):
+        # Test 测试掉落物字典
+        comp = serverApi.CreateComponent(serverApi.GetLevelId(), 'Minecraft', 'item')
+        print comp.GetDroppedItem(data["entityId"])
+
         playerJob = self.getJob(data.get("playerId", ""))
         if playerJob != "NULL":
             itemName = data.get("itemName", "")
@@ -80,7 +87,19 @@ class JobsServerModule:
             data["damage"] = int(playerMaxDamage)
             data["isValid"] = 1
 
-    # 定义功能封装
+    # 玩家加入时为其设置生命数3
+    def OnAddServerPlayerEvent(self, data):
+        playerId = data.get("id", "0")
+        if playerId != "0":
+            # 设置生命数
+            modVarPool.PlayerLifePool[playerId] = 3
+
+    # 玩家死亡触发
+    def OnPlayerDieEvent(self, data):
+        playerId = data.get("id", "0")
+        self.playerDide(playerId)
+
+    # # 定义功能封装
     def setJob(self, entityId, job):
         # 在实体上标注职业
         comp = serverApi.CreateComponent(entityId, "Minecraft", "modAttr")
@@ -115,3 +134,42 @@ class JobsServerModule:
         }
         compItem = serverApi.CreateComponent(playerId, 'Minecraft', 'item')
         compItem.SpawnItemToPlayerInv(itemDict, playerId)
+
+    def playerDide(self, playerId):
+        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+        compPlayer = serverApi.CreateComponent(playerId, "Minecraft", "player")
+        life = modVarPool.PlayerLifePool[playerId]
+        modVarPool.PlayerLifePool[playerId] = life - 1
+        if life < 0:
+            # 切换观察者模式
+            compPlayer.SetPlayerGameType(3)
+        # 检测所有玩家游戏模式判断 是否结束
+        for p in serverApi.GetPlayerList():
+            gameType = compGame.GetPlayerGameType(playerId)     
+            if gameType != 3:
+                return
+        # 结束游戏
+        self.StopGame(playerId)
+        
+    # 多次杀死所有附近非玩家实体 (防止史莱姆)
+    def KillAllEntity(self, entityId):
+        compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+        compGame.AddTimer(0.0, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(1.5, self.killAllOtherEntity, entityId)
+        compGame.AddTimer(3.0, self.killAllOtherEntity, entityId)
+
+    def StopGame(self, playerId):
+        compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = playerId
+        self.system.BroadcastEvent(modConfig.StopMobsSpawn, eventArgs)
+        # 杀死所有实体
+        self.KillAllEntity(playerId)
+        # 广播结算UI 及其数据给所有玩家
+        for p in serverApi.GetPlayerList():
+            eventArgs = self.system.CreateEventData()
+            eventArgs["playerId"] = playerId
+            eventArgs["playerKillMobNum"] = modVarPool.PlayerKillMobNum
+            eventArgs["damage"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
+            eventArgs["health"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH)
+            self.system.NotifyToClient(playerId, modConfig.StopMobsSpawn, eventArgs)

@@ -98,10 +98,10 @@ class CurrencyServerModule:
         # 职业合法性检查
         playerJob = self.getJob(playerId)
         if playerJob == "NULL":
-            self.NotifyOneMessageToPlay(playerId, "我看不出你是什么职业呀！")
+            self.NotifyOneMessageToPlay(playerId, "我没法帮助身份不明的人！")
             return
         if itemStr not in modConfig.jobsCanUseArms[playerJob]:
-            self.NotifyOneMessageToPlay(playerId, "你的职业可不能使用这件商品！")
+            self.NotifyOneMessageToPlay(playerId, "这玩意儿很明显不适合你，我是不会卖给你的！")
             return
         # 背包重复检查
         compItem = serverApi.CreateComponent(playerId, 'Minecraft', 'item')
@@ -138,7 +138,7 @@ class CurrencyServerModule:
                 self.NotifyOneMessageToPlay(playerId, "拿着，让怪物们尝尝这家伙！")
                 return
         else:
-            self.NotifyOneMessageToPlay(playerId, "你的金币数量不够！")
+            self.NotifyOneMessageToPlay(playerId, "你钱不够！")
         # print playerId, itemStr, modConfig.shopItem[itemStr]
 
     # 定义功能封装

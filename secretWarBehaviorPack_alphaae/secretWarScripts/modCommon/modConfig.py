@@ -111,10 +111,15 @@ ShopHunterUIName = "ShopHunter"
 ShopHunterUIPyClsPath = "secretWarScripts.modClient.ui.shopHunter.ShopHunterScreen"
 ShopHunterUIScreenDef = "shopHunter.main"
 
+StopGameUIName = "StopGame"
+StopGameUIPyClsPath = "secretWarScripts.modClient.ui.stopGame.StopGameScreen"
+StopGameUIScreenDef = "stopGame.main"
+
 # 自定义事件
 JobsSelectEvent = "JobsSelectEvent"
 JobsSelectFinished = "JobsSelectFinished"
 StartMobsSpawn = "StartMobsSpawn"
+StopMobsSpawn = "StopMobsSpawn"
 StartGame = "StartGame"
 PlayerStartButton = "PlayerStartButton"
 CreateNPCEvent = "CreateNPCEvent"

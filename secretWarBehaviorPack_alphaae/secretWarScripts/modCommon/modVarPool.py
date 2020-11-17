@@ -6,6 +6,11 @@ ArmsDurationPool = []
 
 # 玩家货币列表
 PlayerCurrencyPool = {}
+# 玩家生命数
+PlayerLifePool = {}
+# 玩家杀敌数
+PlayerKillMobNum = 0
+PlayerKillMobNumPool = {}
 
 # 怪物池
 MobPool = {}

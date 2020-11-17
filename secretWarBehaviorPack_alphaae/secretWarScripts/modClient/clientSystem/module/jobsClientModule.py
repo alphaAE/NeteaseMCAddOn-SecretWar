@@ -27,7 +27,8 @@ class JobsClientModule:
         ]
         self.userEventAndCallbackList = [
             [modConfig.JobsSelectFinished, modConfig.ServerSystemName, self.OnJobsSelectFinished],
-            [modConfig.PlayerStartButton, modConfig.ClientSystemName, self.OnPlayerStartButton]
+            [modConfig.PlayerStartButton, modConfig.ClientSystemName, self.OnPlayerStartButton],
+            [modConfig.StopMobsSpawn, modConfig.ServerSystemName, self.OnStopMobsSpawn]
         ]
 
         # ListenEvent
@@ -61,6 +62,23 @@ class JobsClientModule:
         comp.SetSkin("secretWar/" + args["jobs"])
         if self.mStartGameUINode:
             self.mStartGameUINode.SetRemove()
+
+    # 游戏终止广播
+    def OnStopMobsSpawn(self, args):
+        print args
+        # 展示结算Ui
+        pass
+        clientApi.RegisterUI(
+            modConfig.ModName,
+            modConfig.StopGameUIName,
+            modConfig.StopGameUIPyClsPath,
+            modConfig.StopGameUIScreenDef
+        )
+        self.mStopGameUINode = clientApi.CreateUI(modConfig.ModName, modConfig.JobsSelectUIName, {"isHud": 0})
+        if self.mStopGameUINode:
+            self.mStopGameUINode.Init(self.system)
+        else:
+            logger.error("create ui %s failed!" % modConfig.JobsSelectUIScreenDef)
 
     # 定义功能封装
     def CreateUIJobsSelect(self):

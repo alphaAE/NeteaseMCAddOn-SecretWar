@@ -22,7 +22,8 @@ class BasicInitServerModule:
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
         self.eventList = [
             [modConfig.StartMobsSpawn],
-            [modConfig.CreateNPCEvent]
+            [modConfig.CreateNPCEvent],
+            [modConfig.StopMobsSpawn]
         ]
         self.eventAndCallbackList = [
             ["AddServerPlayerEvent", self.OnAddServerPlayerEvent],
@@ -82,6 +83,11 @@ class BasicInitServerModule:
             compAttr.SetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, 40)
             compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, 40)
             compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.SPEED, 0.15)
+            # 屏蔽饥饿度
+            compGame = serverApi.CreateComponent(playerId, "Minecraft", "game")
+            compGame.SetDisableHunger(True)
+            compPlayer = serverApi.CreateComponent(playerId, "Minecraft", "player")
+            compPlayer.SetPlayerMaxExhaustionValue(1000000.0)
             # 首次进入重置
             if self.init == 0:
                 self.init = 1
@@ -90,11 +96,14 @@ class BasicInitServerModule:
     def OnCommandEvent(self, data):
         entityId = data.get("entityId", "")
         command = data.get("command", "")
-        if command == "/sw s":
+        if command == "/sw start":
             self.start(entityId)
+        elif command == "/sw stop":
+            self.BroadcastStopMobsSpawn(entityId)
+            self.KillAllEntity(entityId)
         elif command == "/sw npc":
             self.BroadcastSpawnNPC(entityId)
-        elif command == "/sw k":
+        elif command == "/sw kill":
             self.KillAllEntity(entityId)
 
     def OnStartGame(self, data):
@@ -147,3 +156,9 @@ class BasicInitServerModule:
         compGame.AddTimer(0.0, self.killAllOtherEntity, entityId)
         compGame.AddTimer(1.5, self.killAllOtherEntity, entityId)
         compGame.AddTimer(3.0, self.killAllOtherEntity, entityId)
+
+    # 通知停止游戏
+    def BroadcastStopMobsSpawn(self, entityId):
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = entityId
+        self.system.BroadcastEvent(modConfig.StopMobsSpawn, eventArgs) 

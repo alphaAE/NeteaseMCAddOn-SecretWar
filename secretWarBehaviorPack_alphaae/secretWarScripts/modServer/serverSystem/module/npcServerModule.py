@@ -21,7 +21,8 @@ class NPCServerModule:
         self.eventList = []
         self.eventAndCallbackList = []
         self.userEventAndCallbackList = [
-            [modConfig.CreateNPCEvent, modConfig.ServerSystemName, self.OnCreateNPC]
+            [modConfig.CreateNPCEvent, modConfig.ServerSystemName, self.OnCreateNPC],
+            ["AddServerPlayerEvent", self.OnAddServerPlayerEvent]
         ]
 
         # ListenEvent
@@ -41,4 +42,16 @@ class NPCServerModule:
         compName = serverApi.CreateComponent(entityId2, "Minecraft", "name")
         compName.SetName("职业猎人")
 
+    # 初始化角色物品、状态
+    def OnAddServerPlayerEvent(self, data):
+        playerId = data.get("id", "0")
+        if playerId != "0":
+            self.NotifyOneMessageToPlayer(playerId, "职业猎人：看呐，又一个被召唤过来的打手，你们是哪个时代过来的")
+            self.NotifyOneMessageToPlayer(playerId, "职业法师：仪式，很成功")
+
     # 定义功能封装
+
+    # 通知消息到玩家
+    def NotifyOneMessageToPlayer(self, playerId, msg):
+        compMsg = serverApi.CreateComponent(playerId, "Minecraft", "msg")
+        compMsg.NotifyOneMessage(playerId, msg, "§c")

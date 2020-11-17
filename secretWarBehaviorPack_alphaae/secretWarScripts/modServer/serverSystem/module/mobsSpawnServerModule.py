@@ -175,6 +175,7 @@ class MobsSpawnServerModule:
         ]
         self.userEventAndCallbackList = [
             [modConfig.StartMobsSpawn, modConfig.ServerSystemName, self.OnStartMobsSpawn]
+            [modConfig.StopMobsSpawn, modConfig.ServerSystemName, self.OnStopMobsSpawn]
         ]
 
         # ListenEvent
@@ -202,6 +203,7 @@ class MobsSpawnServerModule:
         if entityId in modVarPool.MobPool:
             self.SpawnLoot(entityId)
             del modVarPool.MobPool[entityId]
+            modVarPool.PlayerKillMobNum += 1
 
     def OnStartMobsSpawn(self, data):
         self.playerId = data.get("playerId", "")
@@ -285,8 +287,12 @@ class MobsSpawnServerModule:
         if rNum <= (80 + waveNum * 0.4):
             self.CreateItem(pos, "secret_war:coin", modConfig.MobLootCount[mobType])
         rNum = random.randint(0, 100)
-        if rNum <= (55 + waveNum * 0.4):
-            self.CreateItem(pos, "minecraft:baked_potato", modConfig.MobLootCount[mobType])
+        if rNum <= (30 + waveNum * 0.4):
+            itemDict = {
+                'itemName': "minecraft:baked_potato",
+                'count': 1
+            }
+            self.system.CreateEngineItemEntity(itemDict, 0, pos)
 
     def CreateItem(self, pos, itemName, count, dimensionId=0):
         itemDict = {
