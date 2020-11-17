@@ -53,7 +53,7 @@ class BasicInitServerModule:
                 'fire_spreads': False,              # 火焰蔓延
                 'tnt_explodes': False,              # tnt爆炸
                 'mob_loot': False,                  # 生物战利品
-                'natural_regeneration': True,       # 自然生命恢复
+                'natural_regeneration': False,      # 自然生命恢复
                 'tile_drops': False,                # 方块掉落
                 'immediate_respawn': True           # 作弊开启
             },
