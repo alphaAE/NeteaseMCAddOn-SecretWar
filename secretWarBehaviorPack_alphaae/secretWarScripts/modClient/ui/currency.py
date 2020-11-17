@@ -21,14 +21,22 @@ class CurrencyScreen(ScreenNode):
         self.currencyImage = self.currencyPanel + "/currencyImage"
         self.currencyNumLabel = self.currencyPanel + "/currencyNumLabel"
 
+        self.lifePanel = self.mainPanel + "/lifePanel"
+        self.lifeImage = self.lifePanel + "/lifeImage"
+        self.lifeNumLabel = self.lifePanel + "/lifeNumLabel"
+
     # Create函数是继承自ScreenNode，会在UI创建完成后被调用
     def Create(self):
         # 配置初始金币数量
         text = str(-1)
         self.SetText(self.currencyNumLabel, text)
+        text2 = str(-1)
+        self.SetText(self.lifeNumLabel, text2)
         # 配置金币图标
         imagePath = "textures/items/coin"
         self.SetSprite(self.currencyImage, imagePath)
+        imagePath2 = "textures/ui/life"
+        self.SetSprite(self.lifeImage, imagePath2)
 
     # 界面的一些初始化操作
     def Init(self, system):
@@ -37,3 +45,7 @@ class CurrencyScreen(ScreenNode):
     def SetCurrency(self, Count):
         text = str(Count)
         self.SetText(self.currencyNumLabel, text)
+
+    def SetLife(self, Count):
+        text = str(Count)
+        self.SetText(self.lifeNumLabel, text)

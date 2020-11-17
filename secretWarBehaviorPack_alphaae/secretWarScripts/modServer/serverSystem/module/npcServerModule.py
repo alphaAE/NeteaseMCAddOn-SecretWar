@@ -19,10 +19,11 @@ class NPCServerModule:
         # 监听事件列表
         self.listenEventUtil = ListenEventUtil(serverApi, self.system, self)
         self.eventList = []
-        self.eventAndCallbackList = []
-        self.userEventAndCallbackList = [
-            [modConfig.CreateNPCEvent, modConfig.ServerSystemName, self.OnCreateNPC],
+        self.eventAndCallbackList = [
             ["AddServerPlayerEvent", self.OnAddServerPlayerEvent]
+        ]
+        self.userEventAndCallbackList = [
+            [modConfig.CreateNPCEvent, modConfig.ServerSystemName, self.OnCreateNPC]
         ]
 
         # ListenEvent
@@ -46,8 +47,9 @@ class NPCServerModule:
     def OnAddServerPlayerEvent(self, data):
         playerId = data.get("id", "0")
         if playerId != "0":
-            self.NotifyOneMessageToPlayer(playerId, "职业猎人：看呐，又一个被召唤过来的打手，你们是哪个时代过来的")
-            self.NotifyOneMessageToPlayer(playerId, "职业法师：仪式，很成功")
+            gameComp = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+            gameComp.AddTimer(13, self.NotifyOneMessageToPlayer, playerId, "职业猎人：看呐，又一个被召唤过来的打手，你们是哪个时代过来的")
+            gameComp.AddTimer(13, self.NotifyOneMessageToPlayer, playerId, "职业法师：仪式，很成功")
 
     # 定义功能封装
 

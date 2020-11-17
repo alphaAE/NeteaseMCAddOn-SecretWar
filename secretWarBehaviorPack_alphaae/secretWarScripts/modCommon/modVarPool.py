@@ -11,6 +11,8 @@ PlayerLifePool = {}
 # 玩家杀敌数
 PlayerKillMobNum = 0
 PlayerKillMobNumPool = {}
+# 死亡玩家
+PlayerDie = []
 
 # 怪物池
 MobPool = {}

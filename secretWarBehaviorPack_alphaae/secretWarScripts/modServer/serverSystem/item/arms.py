@@ -1,6 +1,7 @@
 import server.extraServerApi as serverApi
 
 from secretWarScripts.modCommon import modConfig
+from secretWarScripts.modCommon import modVarPool
 
 import random
 
@@ -68,6 +69,9 @@ class Arms(object):
 
     @staticmethod
     def damageMob(playerId, targetId, damage):
+        # 屏蔽阵亡玩家伤害
+        if playerId in modVarPool.PlayerDie:
+            return
         compAttr = serverApi.CreateComponent(playerId, "Minecraft", "attr")
         payerDamage = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
         compAttr = serverApi.CreateComponent(targetId, "Minecraft", "attr")
@@ -122,7 +126,7 @@ class Arms(object):
 
 # 燃烧连弩
 class ArmsBowFlame(Arms):
-    id = "secret_war:bow_flame"
+    id = "secret_war_bow_flame:bow"
     damage = 6.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -180,7 +184,7 @@ class ArmsBowFlame(Arms):
 
 # 强击连弩
 class ArmsBowStrong(Arms):
-    id = "secret_war:bow_strong"
+    id = "secret_war_bow_strong:bow"
     damage = 8.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -220,7 +224,7 @@ class ArmsBowStrong(Arms):
 
 # 猎人之弩（效果需要在词缀模块制作后）
 class ArmsBowHunter(Arms):
-    id = "secret_war:bow_hunter"
+    id = "secret_war_bow_hunter:bow"
     damage = 8.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -280,7 +284,7 @@ class ArmsBowHunter(Arms):
 
 # HAZ-41型反物质发射器
 class ArmsBowAntimatterHaz41(Arms):
-    id = "secret_war:bow_antimatter_haz41"
+    id = "secret_war_bow_antimatter_haz41:bow"
     damage = 10.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -369,7 +373,7 @@ class ArmsBowAntimatterHaz41(Arms):
 
 # 剧毒法杖
 class ArmsStaffToxic(Arms):
-    id = "secret_war:staff_toxic"
+    id = "secret_war_staff_toxic:bow"
     damage = 6.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -417,7 +421,7 @@ class ArmsStaffToxic(Arms):
 
 # 黏液法杖
 class ArmsStaffSlime(Arms):
-    id = "secret_war:staff_slime"
+    id = "secret_war_staff_slime:bow"
     damage = 7.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -465,7 +469,7 @@ class ArmsStaffSlime(Arms):
 
 # 振奋法杖
 class ArmsStaffInvigorating(Arms):
-    id = "secret_war:staff_invigorating"
+    id = "secret_war_staff_invigorating:bow"
     damage = 7.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):
@@ -523,7 +527,7 @@ class ArmsStaffInvigorating(Arms):
 
 # 破灭的爆裂疾风杖
 class ArmsStaffBurstingBlast(Arms):
-    id = "secret_war:staff_bursting_blast"
+    id = "secret_war_staff_bursting_blast:bow"
     damage = 8.0
 
     def OnRangedWeaponReleaseUsingServerEvent(self, data):

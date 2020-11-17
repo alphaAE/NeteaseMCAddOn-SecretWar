@@ -6,15 +6,15 @@ item.secret_war:bone_meal_ender.name=末影骨粉
 item.secret_war:bone_meal_flames.name=烈焰骨粉
 item.secret_war:bone_meal_illusion.name=幻术骨粉
 
-item.secret_war:bow_flame.name=燃烧连弩
-item.secret_war:bow_strong.name=强击连弩
-item.secret_war:bow_hunter.name=猎人之弩
-item.secret_war:bow_antimatter_haz41.name=HAZ-41型反物质发射器
+item.secret_war_bow_flame:bow.name=燃烧连弩
+item.secret_war_bow_strong:bow.name=强击连弩
+item.secret_war_bow_hunter:bow.name=猎人之弩
+item.secret_war_bow_antimatter_haz41:bow.name=HAZ-41型反物质发射器
 
-item.secret_war:staff_toxic.name=剧毒法杖
-item.secret_war:staff_slime.name=黏液法杖
-item.secret_war:staff_invigorating.name=振奋法杖
-item.secret_war:staff_bursting_blast.name=破灭的爆裂疾风杖
+item.secret_war_staff_toxic:bow.name=剧毒法杖
+item.secret_war_staff_slime:bow.name=黏液法杖
+item.secret_war_staff_invigorating:bow.name=振奋法杖
+item.secret_war_staff_bursting_blast:bow.name=破灭的爆裂疾风杖
 
 item.secret_war:coin.name=金币
 item.secret_war:egg_exclusive_precious.name=专属珍贵生物蛋（无用）

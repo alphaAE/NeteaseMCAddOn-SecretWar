@@ -71,25 +71,25 @@ class ShopMageScreen(ScreenNode):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:staff_toxic")
+            self.NotifyToServerPlayerBuy("secret_war_staff_toxic:bow")
 
     def OnBtnStaffSlime(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:staff_slime")
+            self.NotifyToServerPlayerBuy("secret_war_staff_slime:bow")
 
     def OnBtnStaffInvigorating(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:staff_invigorating")
+            self.NotifyToServerPlayerBuy("secret_war_staff_invigorating:bow")
 
     def OnBtnBurstingBlast(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:staff_bursting_blast")
+            self.NotifyToServerPlayerBuy("secret_war_staff_bursting_blast:bow")
 
     # 定义功能封装
     def NotifyToServerPlayerBuy(self, itemStr):

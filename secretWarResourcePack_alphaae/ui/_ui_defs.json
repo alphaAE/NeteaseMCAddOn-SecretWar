@@ -5,6 +5,7 @@
         "ui\/jobsSelect.json",
         "ui\/shopHunter.json",
         "ui\/shopMage.json",
-        "ui\/startGame.json"
+        "ui\/startGame.json",
+        "ui\/stopGame.json"
     ]
 }

@@ -71,25 +71,25 @@ class ShopHunterScreen(ScreenNode):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:bow_flame")
+            self.NotifyToServerPlayerBuy("secret_war_bow_flame:bow")
 
     def OnBtnBowStrong(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:bow_strong")
+            self.NotifyToServerPlayerBuy("secret_war_bow_strong:bow")
 
     def OnBtnBowHunter(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:bow_hunter")
+            self.NotifyToServerPlayerBuy("secret_war_bow_hunter:bow")
 
     def OnBtnBowAntimatterHaz41(self, args):
         touchEventEnum = clientApi.GetMinecraftEnum().TouchEvent
         touchEvent = args["TouchEvent"]
         if touchEvent == touchEventEnum.TouchUp:
-            self.NotifyToServerPlayerBuy("secret_war:bow_antimatter_haz41")
+            self.NotifyToServerPlayerBuy("secret_war_bow_antimatter_haz41:bow")
 
     # 定义功能封装
     def NotifyToServerPlayerBuy(self, itemStr):

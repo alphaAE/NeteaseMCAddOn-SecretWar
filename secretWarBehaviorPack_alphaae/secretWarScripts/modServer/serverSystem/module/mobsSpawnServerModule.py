@@ -174,7 +174,7 @@ class MobsSpawnServerModule:
             ["MobDieEvent", self.OnMobDieEvent]
         ]
         self.userEventAndCallbackList = [
-            [modConfig.StartMobsSpawn, modConfig.ServerSystemName, self.OnStartMobsSpawn]
+            [modConfig.StartMobsSpawn, modConfig.ServerSystemName, self.OnStartMobsSpawn],
             [modConfig.StopMobsSpawn, modConfig.ServerSystemName, self.OnStopMobsSpawn]
         ]
 
@@ -287,10 +287,18 @@ class MobsSpawnServerModule:
         if rNum <= (80 + waveNum * 0.4):
             self.CreateItem(pos, "secret_war:coin", modConfig.MobLootCount[mobType])
         rNum = random.randint(0, 100)
-        if rNum <= (30 + waveNum * 0.4):
+        if rNum <= (18 + waveNum * 0.4):
             itemDict = {
-                'itemName': "minecraft:baked_potato",
-                'count': 1
+                'itemName': "minecraft:potion",
+                'count': 1,
+                'auxValue': 28,
+            }
+            self.system.CreateEngineItemEntity(itemDict, 0, pos)
+        if rNum <= (6 + waveNum * 0.3):
+            itemDict = {
+                'itemName': "minecraft:potion",
+                'count': 1,
+                'auxValue': 30,
             }
             self.system.CreateEngineItemEntity(itemDict, 0, pos)
 

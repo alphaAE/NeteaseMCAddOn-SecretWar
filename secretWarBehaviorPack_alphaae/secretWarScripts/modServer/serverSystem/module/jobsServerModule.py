@@ -21,16 +21,21 @@ class JobsServerModule:
         self.eventList = [
             [modConfig.JobsSelectFinished],
             [modConfig.StartGame],
-            [modConfig.StopMobsSpawn]
+            [modConfig.StopMobsSpawn],
+            [modConfig.ServerCallbackPlayerLifeEvent]
         ]
         self.eventAndCallbackList = [
             ["ServerPlayerTryTouchEvent", self.OnServerPlayerTryTouchEvent],
             ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent],
             ["AddServerPlayerEvent", self.OnAddServerPlayerEvent],
-            ["PlayerDieEvent", self.OnPlayerDieEvent]
+            ["PlayerDieEvent", self.OnPlayerDieEvent],
+            ["ServerPlayerTryDestroyBlockEvent", self.OnServerPlayerTryDestroyBlockEvent],
+            ["PlayerAttackEntityEvent", self.OnPlayerAttackEntityEvent]
+
         ]
         self.userEventAndCallbackList = [
-            [modConfig.JobsSelectEvent, modConfig.ClientSystemName, self.OnJobsSelectEvent]
+            [modConfig.JobsSelectEvent, modConfig.ClientSystemName, self.OnJobsSelectEvent],
+            [modConfig.ClientGetPlayerLifeEvent, modConfig.ClientSystemName, self.OnClientGetPlayerLifeEvent]
         ]
 
         # ListenEvent
@@ -49,9 +54,9 @@ class JobsServerModule:
         self.NotifyOneMessageToAllPlay("{} 选择了职业 {}".format(name, self.getJob(data["playerId"])))
         # 给予初始装备
         if data["jobs"] == modConfig.JobsHunter:
-            self.GivePlayersItem(data["playerId"], "secret_war:bow_flame")
+            self.GivePlayersItem(data["playerId"], "secret_war_bow_flame:bow")
         elif data["jobs"] == modConfig.JobsMage:
-            self.GivePlayersItem(data["playerId"], "secret_war:staff_toxic")
+            self.GivePlayersItem(data["playerId"], "secret_war_staff_toxic:bow")
         # 检测所有玩家选择职业结束
         for player in serverApi.GetPlayerList():
             if self.getJob(player) == "NULL":
@@ -65,9 +70,8 @@ class JobsServerModule:
     # 捡起物品时回调 判断是否是合格物品
     def OnServerPlayerTryTouchEvent(self, data):
         # Test 测试掉落物字典
-        comp = serverApi.CreateComponent(serverApi.GetLevelId(), 'Minecraft', 'item')
-        print comp.GetDroppedItem(data["entityId"])
-
+        # comp = serverApi.CreateComponent(serverApi.GetLevelId(), 'Minecraft', 'item')
+        # print comp.GetDroppedItem(data["entityId"])
         playerJob = self.getJob(data.get("playerId", ""))
         if playerJob != "NULL":
             itemName = data.get("itemName", "")
@@ -99,6 +103,28 @@ class JobsServerModule:
         playerId = data.get("id", "0")
         self.playerDide(playerId)
 
+    # 屏蔽阵亡玩家对方块操作
+    def OnServerPlayerTryDestroyBlockEvent(self, data):
+        playerId = data.get("playerId", "")
+        if playerId in modVarPool.PlayerDie:
+            data["cancel"] = True
+
+    # 屏蔽阵亡玩家对实体操作
+    def OnPlayerAttackEntityEvent(self, data):
+        playerId = data.get("playerId", "")
+        if playerId in modVarPool.PlayerDie:
+            data["cancel"] = True
+
+    # 接受请求客户端请求生命值
+    def OnClientGetPlayerLifeEvent(self, data):
+        playerId = data.get("playerId", "0")
+        if playerId != "0":
+            # 广播更变生命数
+            eventArgs = self.system.CreateEventData()
+            eventArgs["playerId"] = playerId
+            eventArgs["life"] = modVarPool.PlayerLifePool[playerId]
+            self.system.NotifyToClient(playerId, modConfig.ServerCallbackPlayerLifeEvent, eventArgs)
+
     # # 定义功能封装
     def setJob(self, entityId, job):
         # 在实体上标注职业
@@ -127,6 +153,15 @@ class JobsServerModule:
             compMsg = serverApi.CreateComponent(p, "Minecraft", "msg")
             compMsg.NotifyOneMessage(p, msg, "§c")
 
+    def NotifyOneMessageToPlay(self, playerId, msg):
+        compMsg = serverApi.CreateComponent(playerId, "Minecraft", "msg")
+        compMsg.NotifyOneMessage(playerId, msg, "§c")
+
+    def TitleAllPlay(self, msg):
+        compCommand = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "command")
+        if serverApi.GetPlayerList()[0] is not None:
+            compCommand.SetCommand("/title @a title §c{}".format(msg), serverApi.GetPlayerList()[0])
+
     def GivePlayersItem(self, playerId, itemStr):
         itemDict = {
             'itemName': itemStr,
@@ -136,17 +171,36 @@ class JobsServerModule:
         compItem.SpawnItemToPlayerInv(itemDict, playerId)
 
     def playerDide(self, playerId):
+        # print modVarPool.PlayerLifePool
         compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
         compPlayer = serverApi.CreateComponent(playerId, "Minecraft", "player")
         life = modVarPool.PlayerLifePool[playerId]
         modVarPool.PlayerLifePool[playerId] = life - 1
-        if life < 0:
+        life = modVarPool.PlayerLifePool[playerId]
+        # 广播更变生命数
+        eventArgs = self.system.CreateEventData()
+        eventArgs["playerId"] = playerId
+        eventArgs["life"] = modVarPool.PlayerLifePool[playerId]
+        self.system.NotifyToClient(playerId, modConfig.ServerCallbackPlayerLifeEvent, eventArgs)
+        print eventArgs
+        if life <= 0:
             # 切换观察者模式
-            compPlayer.SetPlayerGameType(3)
+            compPlayer.SetPlayerGameType(1)
+            # 加入死亡池
+            modVarPool.PlayerDie.append(playerId)
+            # 清空背包
+            comp = serverApi.CreateComponent(playerId, 'Minecraft', 'item')
+            # 通知
+            compName = serverApi.CreateComponent(playerId, "Minecraft", "name")
+            name = compName.GetName()
+            self.NotifyOneMessageToAllPlay("{} 失去了游戏资格！".format(name))
+            self.NotifyOneMessageToPlay(playerId, "你失去了游戏资格，你可以继续游览，但你的攻击将不再造成伤害！")
+            for i in range(64):
+                comp.SetInvItemNum(i, 0)
         # 检测所有玩家游戏模式判断 是否结束
         for p in serverApi.GetPlayerList():
             gameType = compGame.GetPlayerGameType(playerId)
-            if gameType != 3:
+            if gameType != 1:
                 return
         # 结束游戏
         self.StopGame(playerId)
@@ -174,3 +228,22 @@ class JobsServerModule:
             eventArgs["damage"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.DAMAGE)
             eventArgs["health"] = compAttr.GetAttrMaxValue(serverApi.GetMinecraftEnum().AttrType.HEALTH)
             self.system.NotifyToClient(playerId, modConfig.StopMobsSpawn, eventArgs)
+
+    # 杀死所有附近非玩家实体
+    def killAllOtherEntity(self, entityId):
+        filters = {
+            "any_of": [
+                {
+                    "subject": "other",
+                    "test": "is_family",
+                    "operator": "not",
+                    "value": "player"
+                }
+            ]
+        }
+        comp = serverApi.CreateComponent(entityId, "Minecraft", "game")
+        for i in range(5):
+            entityIdList = comp.GetEntitiesAround(entityId, 80, filters)
+            for entityId in entityIdList:
+                compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+                compGame.KillEntity(entityId)

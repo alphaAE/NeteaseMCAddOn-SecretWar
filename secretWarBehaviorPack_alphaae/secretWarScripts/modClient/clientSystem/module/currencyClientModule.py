@@ -20,14 +20,16 @@ class CurrencyClientModule:
         self.listenEventUtil = ListenEventUtil(clientApi, self.system, self)
         self.eventList = [
             [modConfig.ClientGetPlayerCurrencyEvent],
-            [modConfig.ClientSetPlayerCurrencyEvent]
+            [modConfig.ClientSetPlayerCurrencyEvent],
+            [modConfig.ClientGetPlayerLifeEvent]
         ]
         self.eventAndCallbackList = [
             ["UiInitFinished", self.OnUiInitFinished]
         ]
         self.userEventAndCallbackList = [
             [modConfig.ServerCallbackPlayerCurrencyEvent, modConfig.ServerSystemName, self.OnServerCallbackPlayerCurrencyEvent],
-            [modConfig.OpenShopEvent, modConfig.ServerSystemName, self.OnOpenShopEvent]
+            [modConfig.OpenShopEvent, modConfig.ServerSystemName, self.OnOpenShopEvent],
+            [modConfig.ServerCallbackPlayerLifeEvent, modConfig.ServerSystemName, self.OnServerCallbackPlayerLifeEvent]
         ]
 
         # ListenEvent
@@ -54,6 +56,10 @@ class CurrencyClientModule:
             eventArgs = self.system.CreateEventData()
             eventArgs["playerId"] = clientApi.GetLocalPlayerId()
             self.system.NotifyToServer(modConfig.ClientGetPlayerCurrencyEvent, eventArgs)
+            # 请求Life数据
+            eventArgs = self.system.CreateEventData()
+            eventArgs["playerId"] = clientApi.GetLocalPlayerId()
+            self.system.NotifyToServer(modConfig.ClientGetPlayerLifeEvent, eventArgs)
         else:
             logger.error("create ui %s failed!" % modConfig.FpsBattleUIScreenDef)
 
@@ -61,6 +67,12 @@ class CurrencyClientModule:
     def OnServerCallbackPlayerCurrencyEvent(self, args):
         if self.currencyUINode:
             self.currencyUINode.SetCurrency(args.get("currency", "-2"))
+
+    # 收到服务端通知更改生命显示
+    def OnServerCallbackPlayerLifeEvent(self, args):
+        print args
+        if self.currencyUINode:
+            self.currencyUINode.SetLife(args.get("life", "-2"))
 
     # 收到服务端通知打开商店
     def OnOpenShopEvent(self, data):

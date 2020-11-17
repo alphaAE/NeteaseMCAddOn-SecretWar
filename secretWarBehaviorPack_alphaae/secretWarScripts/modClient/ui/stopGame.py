@@ -20,6 +20,14 @@ class StopGameScreen(ScreenNode):
         self.menuPanel = self.mainPanel + "/menuPanel"
 
         self.btnClose = self.menuPanel + "/btnClose"
+        self.jobLabel = self.menuPanel + "/jobLabel"
+
+        self.healthPanel = self.menuPanel + "/healthPanel"
+        self.healthLable = self.healthPanel + "/healthLable"
+        self.damagePanel = self.menuPanel + "/damagePanel"
+        self.damageLabel = self.damagePanel + "/damageLabel"
+        self.killMobNumPanel = self.menuPanel + "/killMobNumPanel"
+        self.KillMobNumLabel = self.killMobNumPanel + "/KillMobNumLabel"
 
     # Create函数是继承自ScreenNode，会在UI创建完成后被调用
     def Create(self):
@@ -27,13 +35,19 @@ class StopGameScreen(ScreenNode):
 
     # 界面的一些初始化操作
     def Init(self, system, data):
+        # print data
         self.system = system
-        jobs = data.get("jobs", "0")
+        jobs = data.get("jobs", "无")
         playerKillMobNum = data.get("playerKillMobNum", "0")
         damage = data.get("damage", "0")
         health = data.get("health", "0")
+        # 转化职业名称
+        jobs = modConfig.JobsNameDict.get(jobs, "无")
         # 设置数值
-        pass
+        self.SetText(self.jobLabel, str(jobs))
+        self.SetText(self.KillMobNumLabel, str(playerKillMobNum))
+        self.SetText(self.damageLabel, str(damage))
+        self.SetText(self.healthLable, str(health))
 
     # OnButton
     def OnBtnClose(self, args):

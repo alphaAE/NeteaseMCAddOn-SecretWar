@@ -1,0 +1,434 @@
+{
+   "KillMobNumLabel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 5,
+      "line_padding" : 0.0,
+      "offset" : [ 40.50, -0.50 ],
+      "shadow" : false,
+      "size" : [ 31.0, 11.0 ],
+      "text" : "-1",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "btnClose@common.button" : {
+      "$default_texture" : "textures/ui/empty",
+      "$hover_texture" : "textures/ui/empty",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%shopMage.click",
+      "$pressed_texture" : "textures/ui/empty",
+      "$texture_layer" : 2,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@stopGame.default" : {}
+         },
+         {
+            "hover@stopGame.hover" : {}
+         },
+         {
+            "pressed@stopGame.pressed" : {}
+         },
+         {
+            "button_label@stopGame.button_label" : {}
+         }
+      ],
+      "is_handle_button_move_event" : true,
+      "layer" : 7,
+      "offset" : [ 55.50, -89.50 ],
+      "size" : [ 19.0, 19.0 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "damageLabel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 5,
+      "line_padding" : 0.0,
+      "offset" : [ 40.50, -0.50 ],
+      "shadow" : false,
+      "size" : [ 31.0, 11.0 ],
+      "text" : "-1",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "damagePanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "image2@stopGame.image2" : {}
+         },
+         {
+            "label6@stopGame.label6" : {}
+         },
+         {
+            "damageLabel@stopGame.damageLabel" : {}
+         }
+      ],
+      "layer" : 2,
+      "offset" : [ -1.0, 20.50 ],
+      "size" : [ 118.0, 31.0 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "default" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "healthLable" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 5,
+      "line_padding" : 0.0,
+      "offset" : [ 40.50, -0.50 ],
+      "shadow" : false,
+      "size" : [ 31.0, 11.0 ],
+      "text" : "-1",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "healthPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "image0@stopGame.image0" : {}
+         },
+         {
+            "label0@stopGame.label0" : {}
+         },
+         {
+            "healthLable@stopGame.healthLable" : {}
+         }
+      ],
+      "layer" : 2,
+      "offset" : [ -1.0, 53.50 ],
+      "size" : [ 118.0, 31.0 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "hover" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image0" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 4,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -33.50, 0.0 ],
+      "size" : [ 23.0, 22.0 ],
+      "texture" : "textures/ui/health",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 16, 15 ],
+      "visible" : true
+   },
+   "image1" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 4,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -33.50, 0.0 ],
+      "size" : [ 23.0, 22.0 ],
+      "texture" : "textures/ui/kill",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 18, 18 ],
+      "visible" : true
+   },
+   "image2" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "is_new_nine_slice" : false,
+      "layer" : 4,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -33.50, 0.0 ],
+      "size" : [ 23.0, 22.0 ],
+      "texture" : "textures/ui/attack",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 18, 17 ],
+      "visible" : true
+   },
+   "jobLabel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 5,
+      "line_padding" : 0.0,
+      "offset" : [ 15.50, -32.50 ],
+      "shadow" : false,
+      "size" : [ 31.0, 11.0 ],
+      "text" : "jobs",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "killMobNumPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "image1@stopGame.image1" : {}
+         },
+         {
+            "label4@stopGame.label4" : {}
+         },
+         {
+            "KillMobNumLabel@stopGame.KillMobNumLabel" : {}
+         }
+      ],
+      "layer" : 2,
+      "offset" : [ -1.0, -10.50 ],
+      "size" : [ 118.0, 31.0 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "label0" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 3,
+      "line_padding" : 0.0,
+      "offset" : [ 1.0, 1.0 ],
+      "shadow" : false,
+      "size" : [ 34.0, 14.0 ],
+      "text" : "生命  X",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label2" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 5,
+      "line_padding" : 0.0,
+      "offset" : [ -22.50, -32.50 ],
+      "shadow" : false,
+      "size" : [ 31.0, 11.0 ],
+      "text" : "职业：",
+      "text_alignment" : "right",
+      "type" : "label",
+      "visible" : true
+   },
+   "label23" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.049999952316284,
+      "font_size" : "large",
+      "font_type" : "smooth",
+      "layer" : 6,
+      "line_padding" : 0.0,
+      "offset" : [ 1.0, -57.0 ],
+      "shadow" : false,
+      "size" : [ 122.0, 20.0 ],
+      "text" : "游戏结束",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label4" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 3,
+      "line_padding" : 0.0,
+      "offset" : [ 1.0, 1.0 ],
+      "shadow" : false,
+      "size" : [ 34.0, 14.0 ],
+      "text" : "击杀  X",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label6" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 1, 1, 1 ],
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 3,
+      "line_padding" : 0.0,
+      "offset" : [ 1.0, 1.0 ],
+      "shadow" : false,
+      "size" : [ 34.0, 14.0 ],
+      "text" : "伤害  X",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "mainPanel@stopGame.mainPanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "mainPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "menuPanel@stopGame.menuPanel" : {}
+         }
+      ],
+      "layer" : 0,
+      "offset" : [ 0, 0 ],
+      "size" : [ "100%+0 px", "100%+0px" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "menuPanel" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "label23@stopGame.label23" : {}
+         },
+         {
+            "btnClose@stopGame.btnClose" : {}
+         },
+         {
+            "jobLabel@stopGame.jobLabel" : {}
+         },
+         {
+            "label2@stopGame.label2" : {}
+         },
+         {
+            "killMobNumPanel@stopGame.killMobNumPanel" : {}
+         },
+         {
+            "damagePanel@stopGame.damagePanel" : {}
+         },
+         {
+            "healthPanel@stopGame.healthPanel" : {}
+         }
+      ],
+      "is_new_nine_slice" : false,
+      "layer" : 1,
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 9.0, -3.0 ],
+      "size" : [ "-4.0%+154.0px", 216.0 ],
+      "texture" : "textures/ui/shop_bg",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 677, 1000 ],
+      "visible" : true
+   },
+   "namespace" : "stopGame",
+   "pressed" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   }
+}

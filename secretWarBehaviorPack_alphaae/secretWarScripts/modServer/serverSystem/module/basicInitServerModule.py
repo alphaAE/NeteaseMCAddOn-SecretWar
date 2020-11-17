@@ -84,10 +84,13 @@ class BasicInitServerModule:
             compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.HEALTH, 40)
             compAttr.SetAttrValue(serverApi.GetMinecraftEnum().AttrType.SPEED, 0.15)
             # 屏蔽饥饿度
-            compGame = serverApi.CreateComponent(playerId, "Minecraft", "game")
-            compGame.SetDisableHunger(True)
+            # compGame = serverApi.CreateComponent(playerId, "Minecraft", "game")
+            # compGame.SetDisableHunger(True)
             compPlayer = serverApi.CreateComponent(playerId, "Minecraft", "player")
-            compPlayer.SetPlayerMaxExhaustionValue(1000000.0)
+            # compPlayer.SetPlayerMaxExhaustionValue(1000000000000000.0)
+            compGame = serverApi.CreateComponent(serverApi.GetLevelId(), "Minecraft", "game")
+            compGame.AddRepeatedTimer(3.0, self.KeepPlayerHunger, playerId)
+            compPlayer.SetPlayerGameType(0)
             # 首次进入重置
             if self.init == 0:
                 self.init = 1
@@ -109,6 +112,7 @@ class BasicInitServerModule:
     def OnStartGame(self, data):
         entityId = data.get("entityId", "")
         self.start(entityId)
+
     # 定义功能封装
 
     def start(self, entityId):
@@ -161,4 +165,8 @@ class BasicInitServerModule:
     def BroadcastStopMobsSpawn(self, entityId):
         eventArgs = self.system.CreateEventData()
         eventArgs["playerId"] = entityId
-        self.system.BroadcastEvent(modConfig.StopMobsSpawn, eventArgs) 
+        self.system.BroadcastEvent(modConfig.StopMobsSpawn, eventArgs)
+
+    def KeepPlayerHunger(self, playerId):
+        comp = serverApi.CreateComponent(playerId, "Minecraft", "player")
+        comp.SetPlayerHunger(100)

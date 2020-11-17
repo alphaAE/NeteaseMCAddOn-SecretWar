@@ -20,6 +20,11 @@ Minecraft = "Minecraft"
 JobsMage = "mage"
 JobsHunter = "hunter"
 
+JobsNameDict = {
+    JobsMage: "法师",
+    JobsHunter: "猎人"
+}
+
 # 可以使用的物品表
 canUse = [
     "secret_war:bone_meal_alpaca",
@@ -31,25 +36,26 @@ canUse = [
     "secret_war:coin",
     "secret_war:egg_exclusive_precious",
     "minecraft:baked_potato",
-    "secret_war:test"
+    "secret_war:test",
+    "minecraft:potion"
 ]
 
 # 每个职业可以捡起和购买的物品
 jobsCanUseArms = {
     JobsMage: [
-        "secret_war:staff_bursting_blast",
-        "secret_war:staff_invigorating",
-        "secret_war:staff_slime",
-        "secret_war:staff_toxic",
+        "secret_war_staff_bursting_blast:bow",
+        "secret_war_staff_invigorating:bow",
+        "secret_war_staff_slime:bow",
+        "secret_war_staff_toxic:bow",
         "secret_war:egg_exclusive_precious_mage",
         "secret_war:attack",
         "secret_war:health"
     ],
     JobsHunter: [
-        "secret_war:bow_flame",
-        "secret_war:bow_strong",
-        "secret_war:bow_hunter",
-        "secret_war:bow_antimatter_haz41",
+        "secret_war_bow_flame:bow",
+        "secret_war_bow_strong:bow",
+        "secret_war_bow_hunter:bow",
+        "secret_war_bow_antimatter_haz41:bow",
         "secret_war:egg_exclusive_precious_hunter",
         "secret_war:attack",
         "secret_war:health"
@@ -58,15 +64,15 @@ jobsCanUseArms = {
 
 # 商店物品价格表
 shopItem = {
-    "secret_war:staff_bursting_blast": 40,
-    "secret_war:staff_invigorating": 30,
-    "secret_war:staff_slime": 20,
-    "secret_war:staff_toxic": 10,
+    "secret_war_staff_bursting_blast:bow": 40,
+    "secret_war_staff_invigorating:bow": 30,
+    "secret_war_staff_slime:bow": 20,
+    "secret_war_staff_toxic:bow": 10,
 
-    "secret_war:bow_flame": 10,
-    "secret_war:bow_strong": 20,
-    "secret_war:bow_hunter": 30,
-    "secret_war:bow_antimatter_haz41": 40,
+    "secret_war_bow_flame:bow": 10,
+    "secret_war_bow_strong:bow": 20,
+    "secret_war_bow_hunter:bow": 30,
+    "secret_war_bow_antimatter_haz41:bow": 40,
 
     "secret_war:egg_exclusive_precious_mage": 15,
     "secret_war:egg_exclusive_precious_hunter": 15,
@@ -126,6 +132,9 @@ CreateNPCEvent = "CreateNPCEvent"
 PlayerBuyEvent = "PlayerBuyEvent"
 
 ServerCallbackPlayerCurrencyEvent = "ServerCallbackPlayerCurrencyEvent"
+ServerCallbackPlayerLifeEvent = "ServerCallbackPlayerLifeEvent"
+ClientGetPlayerLifeEvent = "ClientGetPlayerLifeEvent"
+
 ClientGetPlayerCurrencyEvent = "ClientGetPlayerCurrencyEvent"
 ClientSetPlayerCurrencyEvent = "ClientSetPlayerCurrencyEvent"
 
